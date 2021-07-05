@@ -1,0 +1,73 @@
+.tutor-container {
+  background: rgba(221, 221, 221, 0.212);
+  border: 1px solid #cecece;
+  border-radius: 4px;
+  width: 100%;
+  min-height: 370px;
+  cursor: pointer;
+  // box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+  //   rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+  .tutor-image {
+    img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    padding: 14px 14px 16px 14px;
+  }
+  .tutor-information {
+    display: flex;
+    justify-content: space-between;
+    .information-left {
+      width: 100%;
+      margin-left: 13px;
+      &__name {
+        display: flex;
+        h3 {
+          width: 100%;
+
+          font: {
+            size: 20px;
+            weight: 700;
+          }
+          margin: 0;
+        }
+      }
+      &__rating{
+        display: flex;
+        align-items: center;
+        margin-right: 17px;
+      }
+      &__location {
+        display: flex;
+        margin: 8px 0;
+        .icon {
+          width: 20px;
+          height: 20px;
+          margin-right: 11px;
+        }
+        p {
+          font: {
+            size: 14px;
+            weight: 400;
+          }
+          line-height: 17px;
+        }
+      }
+      &__teachingSubjects {
+        @extend .information-left__location;
+      }
+      &__teachingLevel {
+        @extend .information-left__location;
+      }
+    }
+    // .rating {
+    //   display: flex;
+    //   margin-right: 17px;
+    //   img {
+    //     width: 20px;
+    //     height: 20px;
+    //   }
+    // }
+  }
+}

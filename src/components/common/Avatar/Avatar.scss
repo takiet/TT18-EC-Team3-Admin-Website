@@ -1,0 +1,10 @@
+@import '../../../assets/scss/variable.scss';
+.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border: solid 1px white;
+}

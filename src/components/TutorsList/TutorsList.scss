@@ -1,0 +1,28 @@
+@import "./../../index.scss";
+
+.tutorsList-container {
+  h2 {
+    font: {
+      size: 28px;
+      weight: 700;
+    }
+    line-height: 45px;
+    color: black;
+    margin-left: 5%;
+  }
+  .tutorsList {
+    margin: 0 5%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    justify-items: center;
+    align-items: center;
+    grid-gap: 10px;
+    @include mobile {
+      grid-template-columns: 1fr;
+    }
+    @include tablet {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+}

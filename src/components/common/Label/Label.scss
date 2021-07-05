@@ -1,0 +1,19 @@
+@import "../../../assets/scss/variable.scss";
+.label {
+  width: 100%;
+  margin: 4px 0;
+  display: grid;
+  grid-template-columns: 30px 4fr;
+  align-items: center;
+  
+  &__icon {
+    color: $primary-color;
+  }
+  &__title {
+    font-weight: bold;
+    font-size: 18px;
+  }
+  &__normal-title {
+    font-size: 14px;
+  }
+}

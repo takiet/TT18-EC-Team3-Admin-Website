@@ -1,0 +1,56 @@
+@import "./../../index.scss";
+
+.introduction {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: 140px;
+  margin-bottom: 70px;
+  align-items: center;
+  justify-items: center;
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+  @include tablet {
+    grid-template-columns: 1fr;
+  }
+  .introduction-users {
+    text-align: center;
+    @include mobile {
+      margin-bottom: 100px;
+    }
+    @include tablet {
+      margin-bottom: 100px;
+    }
+    img {
+      width: 60px;
+      height: 60px;
+    }
+    &__info {
+      font: {
+        size: 28px;
+        weight: 700;
+      }
+      line-height: 30px;
+      span {
+        color: #228891;
+        font: {
+          size: 34px;
+          weight: 700;
+        }
+        line-height: 36px;
+      }
+    }
+  }
+  .introduction-slogan {
+    @extend .introduction-users;
+    &__info {
+      @extend .introduction-users__info;
+    }
+  }
+  .introduction-tutors {
+    @extend .introduction-users;
+    &__info {
+      @extend .introduction-users__info;
+    }
+  }
+}

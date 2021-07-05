@@ -1,0 +1,28 @@
+
+.scroll-horizontal {
+  display: flex;
+  overflow-x: auto;
+  // width: max-content;
+  min-width: 100%;
+  margin-top: 10px;
+  padding-bottom: 8px;
+
+  &::-webkit-scrollbar {
+    background-color: transparent;
+    cursor: pointer;
+    width: 0;
+    // display: none;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    // background-color: rgba(66, 63, 129, 1);
+    cursor: pointer;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+
+  & > .candidate-card { 
+    margin-left: 0px;
+  }
+}

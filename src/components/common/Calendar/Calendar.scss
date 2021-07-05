@@ -1,0 +1,146 @@
+@import "../../../assets/scss/variable.scss";
+@import "../../../index.scss";
+
+.calendar {
+  padding: 24px 12px;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  border: solid 1px rgba($color: white, $alpha: 0.1);
+  height: auto;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 4px;
+    span {
+      background-color: rgba(0, 0, 0, 0.3);
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+  }
+
+  &__picker {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    justify-content: space-between;
+    padding: 0 4%;
+    margin-bottom: 8px;
+    p {
+      font-weight: bold;
+      font-size: 16px;
+    }
+  }
+  &__week-day {
+    height: 50px;
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    border-bottom: solid 1px white;
+    div {
+      display: grid;
+      place-items: center;
+      font-size: 13px !important;
+    }
+  }
+  &__days {
+    &::selection {
+      background: transparent;
+    }
+    &::-moz-selection {
+      background: transparent;
+    }
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+    justify-items: center;
+    gap: 2px;
+    cursor: pointer;
+    div {
+      @include mobile{
+        width: 30px;
+        height: 30px;
+      }
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px;
+      position: relative;
+      cursor: pointer;
+      animation: to-top 1s forwards;
+      color: black;
+      &::selection {
+        background: transparent;
+      }
+      &::-moz-selection {
+        background: transparent;
+      }
+    }
+  }
+
+  &__chevron {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    &:hover {
+      color: black !important;
+      border-radius: 8px;
+    }
+
+    &--right {
+      right: 0;
+    }
+    &--left {
+      left: 0;
+    }
+  }
+  &__day {
+    border-radius: 50%;
+    transition: all 0.5s;
+    color: #808080 !important;
+    font-size: 13px !important;
+    font-weight: 400;
+    &:hover {
+      background-color: $primary-color;
+      transition: all 0.5s;
+    }
+    &--current {
+      color: rgba(255, 191, 67, 1) !important;
+      font-weight: 700;
+      border-radius: 50%;
+    }
+    &--select {
+      // background: linear-gradient(0deg, #3955ff 0%, #91efff 100%) !important;
+      border-radius: 50%;
+      font-weight: bold;
+      background: #fb3f4a !important;
+      color: #ffffff !important;
+    }
+    &--appointment {
+      background-color: transparent;
+      border-radius: 50%;
+      // background: linear-gradient(
+      //   144.63deg,
+      //   rgba(255, 255, 255, 0.349623) 14.91%,
+      //   rgba(255, 255, 255, 0.198891) 86.13%
+      // );
+      // background: linear-gradient(0deg, #3955ff 0%, #91efff 100%) !important;
+      background: linear-gradient(0deg, #3955ff 0%, #91efff 100%) !important;
+    }
+  }
+}
+
+@keyframes to-top {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

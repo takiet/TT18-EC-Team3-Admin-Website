@@ -1,0 +1,229 @@
+@font-face {
+  font-family: "Quicksand";
+  src: local("Quicksand"),
+    url("./assets/fonts/Quicksand-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+// @font-face {
+//   font-family: 'Helvetica Neue';
+//   src: local('Helvetica Neue'), url('./assets/font/helveticaneueitalic.ttf') format('truetype');
+//   font-weight: normal;
+//   font-style: italic;
+// }
+
+@font-face {
+  font-family: "Quicksand";
+  src: local("Quicksand"),
+    url("./assets/fonts/Quicksand-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+// @font-face {
+//   font-family: 'Helvetica Neue';
+//   src: local('Helvetica Neue'), url('./assets/font/helveticaneuelightitalic.ttf') format('truetype');
+//   font-weight: 300;
+//   font-style: italic;
+// }
+// @font-face {
+//   font-family: 'Helvetica Neue';
+//   src: local('Helvetica Neue'), url('./assets/font/helveticaneueultralight.ttf') format('truetype');
+//   font-weight: 100;
+// }
+// @font-face {
+//   font-family: 'Helvetica Neue';
+//   src: local('Helvetica Neue'), url('./assets/font/helveticaneuelightitalic.ttf') format('truetype');
+//   font-weight: 100;
+//   font-style: italic;
+// }
+
+@font-face {
+  font-family: "Quicksand";
+  src: local("Quicksand"),
+    url("./assets/fonts/Quicksand-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-weight: bold;
+}
+// @font-face {
+//   font-family: 'Helvetica Neue';
+
+//   src: local('Helvetica Neue'), url('./assets/font/helveticaneuebolditalic.ttf') format('truetype');
+//   font-weight: 700;
+//   font-style: italic;
+// }
+
+@font-face {
+  font-family: "Quicksand";
+  src: local("Quicsand"),
+    url("./assets/fonts/Quicksand-Medium.ttf") format("truetype");
+  font-weight: 600;
+}
+
+// @font-face {
+//   font-family: 'Helvetica Neue';
+//   src: local('Helvetica Neue'),
+//     url('./assets/font/helveticaneuecondensedbold.ttf') format('truetype');
+//   font-weight: 800;
+// }
+// @font-face {
+//   font-family: 'Helvetica Neue';
+
+//   src: local('Helvetica Neue'),
+//     url('./assets/font/helveticaneuecondensedblack.ttf') format('truetype');
+//   font-weight: 900;
+// }
+
+//reset css
+body {
+  line-height: 1;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  // background-color: #151346;
+  color: black;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+::placeholder {
+  // font-family: 'SVN-Segoe UI', sans-serif;
+  font-family: "Quicksand";
+  font-size: 14px;
+  color: #656565;
+}
+
+html,
+div,
+span,
+object,
+iframe,
+figure,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video,
+textarea {
+  font-size: 100%;
+  font-family: "Quicksand";
+  font-size: 14px;
+}
+
+p {
+  margin: 0;
+}
+
+footer,
+header,
+nav,
+section,
+main {
+  display: block;
+}
+
+img {
+  width: 100%;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+input {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #eeeeee;
+}
+
+//Mixins RESPONSIVE
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: #{$mobile-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: #{$desktop-width}) {
+    @content;
+  }
+}
