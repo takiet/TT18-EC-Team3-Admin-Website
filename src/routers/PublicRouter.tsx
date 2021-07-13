@@ -1,3 +1,4 @@
+import { AnyTxtRecord } from "dns";
 import React from "react";
 import { Route } from "react-router-dom";
 
@@ -11,7 +12,7 @@ export const PublicRouter: React.FC<IPublicRouter> = ({
     <Route
       exact={exact}
       path={path}
-      render={(props) => {
+      render={(props: any) => {
         return (
           <Layout>
             <Component {...props} />
