@@ -1,0 +1,14 @@
+@import '../../assets/scss/variable.scss';
+
+.sidebar-layout {
+  display: flex;
+  width: 100%;
+  max-width: $screen-width;
+
+  &__center {
+    flex: 1;
+    margin-left: 1.5vw;
+    padding-bottom: 16px;
+    padding-left: min(16vw, 240px);
+  }
+}

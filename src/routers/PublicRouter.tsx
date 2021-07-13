@@ -6,10 +6,6 @@ export const PublicRouter: React.FC<IPublicRouter> = ({
   layout: Layout,
   exact,
   path,
-  header: Header,
-  footer: Footer,
-  isHasFooter,
-  isHasHeader,
 }) => {
   return (
     <Route
@@ -17,10 +13,7 @@ export const PublicRouter: React.FC<IPublicRouter> = ({
       path={path}
       render={(props) => {
         return (
-          <Layout
-            header={isHasHeader ? <Header /> : <></>}
-            footer={isHasFooter ? <Footer /> : <></>}
-          >
+          <Layout>
             <Component {...props} />
           </Layout>
         );

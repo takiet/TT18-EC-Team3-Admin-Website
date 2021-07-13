@@ -1,11 +1,18 @@
-interface IHeaderFooterLayout {
-  header?: any;
-  footer?: any;
+interface IPrivateRouter {
+  component: any;
+  layout: any;
+  exact?: boolean;
+  path?: string;
+  sidebar?: any;
 }
-interface IOnlyFooterLayout {
-  footer?: any;
+
+interface IPublicRouter {
+  component: any;
+  layout: any;
+  exact?: boolean;
+  path?: string;
 }
-interface IOnlyHeaderLayout {
-  header?: any;
-  backgroundColor?: any;
+
+interface ILayout {
+  sidebar?: any;
 }
