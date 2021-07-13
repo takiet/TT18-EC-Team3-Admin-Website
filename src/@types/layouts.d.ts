@@ -11,6 +11,7 @@ interface IPublicRouter {
   layout: any;
   exact?: boolean;
   path?: string;
+  sidebar?: any;
 }
 
 interface ILayout {
