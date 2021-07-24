@@ -15,7 +15,7 @@ export const Tutor: React.FC = () => {
 
   useEffect(() => {
     dispatch(doGetAllListTutor());
-  }, []);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className="container">
       <div className="tutor-table">
