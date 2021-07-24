@@ -18,15 +18,8 @@ export const SideBar = () => {
         width={100}
         marginBottom={20}
       />
-       <div
-        className={
-          checkFocus(pathname, "/customer")
-            ? "side-bar__clicked"
-            : "side-bar__item"
-        }
-        onClick={() => logout()}
-      >
-         Logout
+      <div className={"side-bar__item"} onClick={() => logout()}>
+        Logout
       </div>
       <div
         className={
@@ -36,7 +29,7 @@ export const SideBar = () => {
         }
         onClick={() => history.push("/customer")}
       >
-        <FiUser className="side-bar__icon"/> Users
+        <FiUser className="side-bar__icon" /> Users
       </div>
       <div
         className={
@@ -46,7 +39,7 @@ export const SideBar = () => {
         }
         onClick={() => history.push("/tutor")}
       >
-        <FaChalkboardTeacher className="side-bar__icon"/>
+        <FaChalkboardTeacher className="side-bar__icon" />
         Tutors
       </div>
       <div
@@ -57,7 +50,7 @@ export const SideBar = () => {
         }
         onClick={() => history.push("/payment")}
       >
-        <MdPayment className="side-bar__icon"/>
+        <MdPayment className="side-bar__icon" />
         Payment
       </div>
     </div>
