@@ -1,8 +1,8 @@
 import React from "react";
 import { Avatar } from "../common";
 import "./TutorRow.scss";
-import { GrEdit } from "react-icons/gr";
-import { MdBlock } from "react-icons/md";
+// import { GrEdit } from "react-icons/gr";
+// import { MdBlock } from "react-icons/md";
 export const TutorRow: React.FC<ITutorRow> = ({
   index,
   name,
@@ -13,7 +13,7 @@ export const TutorRow: React.FC<ITutorRow> = ({
   return (
     <tr className="tutor-row">
       <td>
-        <GrEdit size={20} />
+        {/* <GrEdit size={20} /> */}
       </td>
       <td>{index}</td>
       <td>
@@ -33,7 +33,7 @@ export const TutorRow: React.FC<ITutorRow> = ({
       <td>{phone}</td>
       <td className="tutor-row__email"> {email}</td>
       <td>
-        <MdBlock size={24} />
+        {/* <MdBlock size={24} /> */}
       </td>
     </tr>
   );
