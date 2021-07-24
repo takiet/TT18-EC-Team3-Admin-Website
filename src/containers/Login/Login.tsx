@@ -15,7 +15,6 @@ export const Login = () => {
   const { register, handleSubmit } = useForm<FormValues>();
 
   const onSubmit = (data: any) => {
-    console.log(data);
     dispatch(doLogin(data))
       .then(unwrapResult)
       .then((res: IResLogin) => {

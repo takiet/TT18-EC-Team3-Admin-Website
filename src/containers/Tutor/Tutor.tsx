@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { Avatar } from "../../components/common";
 import { TutorRow } from "../../components";
 import { ScrollHorizontal } from "../../components/common/ScrollHorizontal/ScrollHorizontal";
 import { doGetAllListTutor } from "../../redux";
@@ -13,7 +12,6 @@ export const Tutor: React.FC = () => {
   const listAllTutor = useSelector(
     (state: RootState) => state.tutorSlice.listAllTutor
   );
-  console.log(listAllTutor);
 
   useEffect(() => {
     dispatch(doGetAllListTutor());
