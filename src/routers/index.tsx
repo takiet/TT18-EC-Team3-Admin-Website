@@ -2,7 +2,7 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import { Homepage, Tutor } from "../containers";
 import { Customer } from "../containers/Customer/Customer";
 import { Login } from "../containers/Login/Login";
-import { SidebarLayout } from "../layouts";
+import { BlankLayout, SidebarLayout } from "../layouts";
 import { PrivateRouter } from "./PrivateRouter";
 import { PublicRouter } from "./PublicRouter";
 
@@ -40,7 +40,7 @@ export const Routers = () => {
           exact={true}
           path={"/login"}
           component={Login}
-          layout={SidebarLayout}
+          layout={BlankLayout}
         />
       </Switch>
     </BrowserRouter>

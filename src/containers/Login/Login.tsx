@@ -26,21 +26,24 @@ export const Login = () => {
         }
       });
   };
+
   return (
     <div className="login">
+      <div className="login__image">
+        <img
+          src="https://www.cambly.com/fe/static/login_illustration_big.png"
+          alt="signupimage"
+        />
+      </div>
       <form className="login__container" onSubmit={handleSubmit(onSubmit)}>
         <div className="login__form">
           <h3>Welcome back to Amitu!</h3>
-          <p>Login with your username address</p>
           <Input placeholder="Username" {...register("username")} />
-          <Input
-            placeholder="Password"
-            type={"password"}
-            {...register("password")}
-          />
+          <Input placeholder="Password" {...register("password")} />
           <Button width="100%" marginBottom={20} type="submit">
             Login
           </Button>
+          <p>username: admin, password: abcd_4321</p>
         </div>
       </form>
     </div>

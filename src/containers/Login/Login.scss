@@ -4,12 +4,43 @@
 .login {
   width: 100%;
   display: flex;
-
+  @include tablet {
+    flex-direction: column;
+  }
+  &__image {
+    flex: 0.5;
+    @include tablet {
+      flex: inherit;
+    }
+    img {
+      height: 100vh;
+      object-fit: cover;
+      @include tablet {
+        height: 300px;
+        object-fit: contain;
+      }
+    }
+  }
   &__container {
     flex: 0.5;
     padding: 0 1.5rem;
     display: flex;
-    flex-direction: column;
-    align-items: left;
+    align-items: center;
+    justify-content: flex-start;
+    @include tablet {
+      // flex: auto;
+      width: 100%;
+      align-items: flex-start;
+      justify-content: center;
+    }
+  }
+  &__form {
+    width: 70%;
+    @include tablet {
+      width: 80%;
+    }
+    @include mobile {
+      width: 100%;
+    }
   }
 }

@@ -1,2 +1,25 @@
 $primary-color: rgb(7, 71, 166);
 $screen-width: 1000px;
+
+//Mixins RESPONSIVE
+$mobile-width: 480px;
+$tablet-width: 768px;
+$desktop-width: 1024px;
+
+@mixin mobile {
+  @media (max-width: $mobile-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: $desktop-width) {
+    @content;
+  }
+}
