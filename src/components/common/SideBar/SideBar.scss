@@ -1,4 +1,4 @@
-@import '../../../assets//scss/variable.scss';
+@import "../../../assets//scss/variable.scss";
 
 .side-bar {
   background: $primary-color;
@@ -20,21 +20,12 @@
     color: white;
     font-weight: bold;
     font-size: 16px;
+    cursor: pointer;
   }
   &__clicked {
-    width: 240px;
-    height: 50px;
-    margin-bottom: 12px;
     background: rgb(5, 54, 127);
-    display: flex;
-    align-items: center;
-    padding: 0 1rem;
-    color: white;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 4px;
   }
-  &__icon{
+  &__icon {
     margin-right: 1rem;
   }
 }

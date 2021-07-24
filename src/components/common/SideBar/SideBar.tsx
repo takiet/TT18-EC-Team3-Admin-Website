@@ -18,46 +18,42 @@ export const SideBar = () => {
         width={100}
         marginBottom={20}
       />
-       <div
-        className={
-          checkFocus(pathname, "/customer")
-            ? "side-bar__clicked"
-            : "side-bar__item"
-        }
-        onClick={() => logout()}
-      >
-         Logout
-      </div>
-      <div
-        className={
-          checkFocus(pathname, "/customer")
-            ? "side-bar__clicked"
-            : "side-bar__item"
-        }
-        onClick={() => history.push("/customer")}
-      >
-        <FiUser className="side-bar__icon"/> Users
+      <div className={"side-bar__item"} onClick={() => logout()}>
+        <p style={{ textAlign: "center", width: "100%", background: "#aaa" }}>
+          Logout
+        </p>
       </div>
       <div
         className={
           checkFocus(pathname, "/tutor")
-            ? "side-bar__clicked"
+            ? "side-bar__item side-bar__clicked"
             : "side-bar__item"
         }
         onClick={() => history.push("/tutor")}
       >
-        <FaChalkboardTeacher className="side-bar__icon"/>
+        <FaChalkboardTeacher className="side-bar__icon" />
         Tutors
       </div>
       <div
         className={
+          checkFocus(pathname, "/customer")
+            ? " side-bar__item side-bar__clicked"
+            : "side-bar__item"
+        }
+        onClick={() => history.push("/customer")}
+      >
+        <FiUser className="side-bar__icon" /> Users
+      </div>
+
+      <div
+        className={
           checkFocus(pathname, "/payment")
-            ? "side-bar__clicked"
+            ? "side-bar__item side-bar__clicked"
             : "side-bar__item"
         }
         onClick={() => history.push("/payment")}
       >
-        <MdPayment className="side-bar__icon"/>
+        <MdPayment className="side-bar__icon" />
         Payment
       </div>
     </div>
