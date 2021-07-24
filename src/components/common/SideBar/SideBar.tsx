@@ -19,22 +19,14 @@ export const SideBar = () => {
         marginBottom={20}
       />
       <div className={"side-bar__item"} onClick={() => logout()}>
-        Logout
-      </div>
-      <div
-        className={
-          checkFocus(pathname, "/customer")
-            ? "side-bar__clicked"
-            : "side-bar__item"
-        }
-        onClick={() => history.push("/customer")}
-      >
-        <FiUser className="side-bar__icon" /> Users
+        <p style={{ textAlign: "center", width: "100%", background: "#aaa" }}>
+          Logout
+        </p>
       </div>
       <div
         className={
           checkFocus(pathname, "/tutor")
-            ? "side-bar__clicked"
+            ? "side-bar__item side-bar__clicked"
             : "side-bar__item"
         }
         onClick={() => history.push("/tutor")}
@@ -44,8 +36,19 @@ export const SideBar = () => {
       </div>
       <div
         className={
+          checkFocus(pathname, "/customer")
+            ? " side-bar__item side-bar__clicked"
+            : "side-bar__item"
+        }
+        onClick={() => history.push("/customer")}
+      >
+        <FiUser className="side-bar__icon" /> Users
+      </div>
+
+      <div
+        className={
           checkFocus(pathname, "/payment")
-            ? "side-bar__clicked"
+            ? "side-bar__item side-bar__clicked"
             : "side-bar__item"
         }
         onClick={() => history.push("/payment")}
