@@ -38,7 +38,11 @@ export const Login = () => {
         <div className="login__form">
           <h3>Welcome back to Amitu!</h3>
           <Input placeholder="Username" {...register("username")} />
-          <Input placeholder="Password" {...register("password")} />
+          <Input
+            placeholder="Password"
+            {...register("password")}
+            type="password"
+          />
           <Button width="100%" marginBottom={20} type="submit">
             Login
           </Button>
