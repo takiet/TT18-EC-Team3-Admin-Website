@@ -1,0 +1,19 @@
+.tutor-row {
+  &:hover {
+    background: rgba(222, 226, 230, 0.3);
+  }
+  td {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+    height: 60px;
+    padding: 0 8px;
+  }
+  &__email {
+    text-align: left !important;
+  }
+  &__name {
+    display: flex;
+    align-items: center;
+  }
+}

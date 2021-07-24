@@ -94,26 +94,10 @@ interface ICourse {
   rating: number;
 }
 
-interface ITutor {
-  id: number;
-  name: string;
-  image: string;
-  location: string;
-  teachingSubject: string[];
-  teachingLevel: string[];
-  rating: number;
-  isLike: number;
-  quote: string;
-  workExperience: string;
-  education: string[];
-  courses: ICourse[];
-}
-
-interface ICourseItem {
-  id?:number;
+interface ITutorRow {
+  index?: number;
   name?: string;
-  durations?: string;
-  level?: string;
-  subject?: string;
-  rating?: number;
+  phone?: number;
+  email?: string;
+  avatar?: string;
 }
