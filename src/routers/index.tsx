@@ -1,6 +1,7 @@
 import { BrowserRouter, Switch } from "react-router-dom";
 import { Homepage, Tutor } from "../containers";
 import { Customer } from "../containers/Customer/Customer";
+import { Login } from "../containers/Login/Login";
 import { SidebarLayout } from "../layouts";
 import { PublicRouter } from "./PublicRouter";
 
@@ -32,6 +33,12 @@ export const Routers = () => {
           exact={true}
           path={"/payment"}
           component={Homepage}
+          layout={SidebarLayout}
+        />
+          <PublicRouter
+          exact={true}
+          path={"/login"}
+          component={Login}
           layout={SidebarLayout}
         />
       </Switch>
