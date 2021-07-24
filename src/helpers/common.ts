@@ -11,8 +11,8 @@ export const checkFocus = (pathName: string, path: string, isExact: boolean = tr
   return pathName.includes(path);
 };
 
-// export const logout = () => {
-//   window.location.replace('/login');
-//   localStorage.removeItem(EToken.TokenJobs);
-// };
+export const logout = () => {
+  window.location.replace('/login');
+  window.localStorage.clear();
+};
 

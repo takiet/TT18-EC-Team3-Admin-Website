@@ -3,6 +3,7 @@ import { Homepage, Tutor } from "../containers";
 import { Customer } from "../containers/Customer/Customer";
 import { Login } from "../containers/Login/Login";
 import { SidebarLayout } from "../layouts";
+import { PrivateRouter } from "./PrivateRouter";
 import { PublicRouter } from "./PublicRouter";
 
 // import { PrivateRouter } from './PrivateRouter';
@@ -11,31 +12,31 @@ export const Routers = () => {
   return (
     <BrowserRouter>
       <Switch>
-        <PublicRouter
+        <PrivateRouter
           exact={true}
           path={"/"}
           component={Homepage}
           layout={SidebarLayout}
         />
-        <PublicRouter
+        <PrivateRouter
           exact={true}
           path={"/customer"}
           component={Customer}
           layout={SidebarLayout}
         />
-        <PublicRouter
+        <PrivateRouter
           exact={true}
           path={"/tutor"}
           component={Tutor}
           layout={SidebarLayout}
         />
-        <PublicRouter
+        <PrivateRouter
           exact={true}
           path={"/payment"}
           component={Homepage}
           layout={SidebarLayout}
         />
-          <PublicRouter
+        <PublicRouter
           exact={true}
           path={"/login"}
           component={Login}

@@ -1,26 +1,14 @@
-import { userLoginReducer } from "./../reducers/userReducers";
-import { createStore, compose, applyMiddleware, combineReducers } from "redux";
-import thunk from "redux-thunk";
+import { configureStore, getDefaultMiddleware } from '@reduxjs/toolkit';
+import { useDispatch } from 'react-redux';
+import { rootReducer } from '../rootReducer';
 
-declare global {
-  interface Window {
-    __REDUX_DEVTOOLS_EXTENSION_COMPOSE__?: typeof compose;
-  }
-}
-const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-
-const initialState = {
-  userSignin: {
-    userInfo: localStorage.getItem("access"),
-  },
-};
-const reducer = combineReducers({
-  userSignin: userLoginReducer,
+const store = configureStore({
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware({
+    serializableCheck: false,
+  }),
 });
-const store = createStore(
-  reducer,
-  initialState,
-  composeEnhancer(applyMiddleware(thunk))
-);
 
+export type AppDispatch = typeof store.dispatch;
+export const useAppDispatch = () => useDispatch<AppDispatch>();
 export default store;

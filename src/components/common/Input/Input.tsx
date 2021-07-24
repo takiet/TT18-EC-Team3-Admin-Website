@@ -12,6 +12,7 @@ export const Input = React.forwardRef<any, IInput>(
       isFocus = false,
       onChange,
       onBlur,
+      type,
     },
     ref
   ) => {
@@ -24,6 +25,7 @@ export const Input = React.forwardRef<any, IInput>(
           onBlur={onBlur}
           onChange={onChange}
           ref={ref}
+          type={type}
         />
       </div>
     );

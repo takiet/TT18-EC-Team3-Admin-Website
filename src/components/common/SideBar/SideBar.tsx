@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar } from "../Avatar/Avatar";
 import "./SideBar.scss";
-import { checkFocus } from "../../../helpers";
+import { checkFocus, logout } from "../../../helpers";
 import { useHistory, useLocation } from "react-router";
 import { FiUser } from "react-icons/fi";
 import { FaChalkboardTeacher } from "react-icons/fa";
@@ -18,6 +18,16 @@ export const SideBar = () => {
         width={100}
         marginBottom={20}
       />
+       <div
+        className={
+          checkFocus(pathname, "/customer")
+            ? "side-bar__clicked"
+            : "side-bar__item"
+        }
+        onClick={() => logout()}
+      >
+         Logout
+      </div>
       <div
         className={
           checkFocus(pathname, "/customer")
