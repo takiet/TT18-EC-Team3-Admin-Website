@@ -11,7 +11,7 @@ export const TutorRow: React.FC<ITutorRow> = ({
   avatar,
 }) => {
   return (
-    <tr className="tutor-row">
+    <tr className="tutor-row" key={index}>
       <td>
         <GrEdit size={20} />
       </td>
@@ -20,8 +20,9 @@ export const TutorRow: React.FC<ITutorRow> = ({
         <div className="tutor-row__name">
           <Avatar
             image={
-              avatar ||
-              "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg"
+              avatar === ""
+                ? "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg"
+                : avatar
             }
             height={50}
             width={50}

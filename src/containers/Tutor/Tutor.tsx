@@ -22,24 +22,31 @@ export const Tutor: React.FC = () => {
         <ScrollHorizontal>
           <div className="table-responsive">
             <table style={{ width: "960px" }}>
-              <tr>
-                <th className="tutor-table__edit"></th>
-                <th className="tutor-table__no-order">#</th>
-                <th className="tutor-table__name">Name</th>
-                <th className="tutor-table__phone">Phone Number</th>
-                <th className="tutor-table__email">Email</th>
-                <th className="tutor-table__button"></th>
-              </tr>
-              {listAllTutor.map((item, index) => {
-                return (
-                  <TutorRow
-                    index={index + 1}
-                    name={item.name}
-                    email={item.email}
-                    phone={item.phone}
-                  />
-                );
-              })}
+              <thead>
+                <tr>
+                  <th className="tutor-table__edit"></th>
+                  <th className="tutor-table__no-order">#</th>
+                  <th className="tutor-table__name">Name</th>
+                  <th className="tutor-table__phone">Phone Number</th>
+                  <th className="tutor-table__email">Email</th>
+                  <th className="tutor-table__button"></th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {listAllTutor.map((item, index) => {
+                  return (
+                    <TutorRow
+                      key={index}
+                      index={index + 1}
+                      name={item.name}
+                      email={item.email}
+                      phone={item.phone}
+                      avatar={item.avatar}
+                    />
+                  );
+                })}
+              </tbody>
             </table>
           </div>
         </ScrollHorizontal>
