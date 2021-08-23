@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { TutorRow } from "../../components";
 import { Button } from "../../components/common";
 import { ScrollHorizontal } from "../../components/common/ScrollHorizontal/ScrollHorizontal";
-import { doAddTutor, doGetAllListTutor } from "../../redux";
+import { doGetAllListTutor } from "../../redux";
 import { RootState } from "../../redux/rootReducer";
 import { useAppDispatch } from "../../redux/store";
 import "./Tutor.scss";
