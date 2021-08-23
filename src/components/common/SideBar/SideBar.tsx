@@ -33,7 +33,7 @@ export const SideBar = () => {
         onClick={() => history.push("/")}
       >
         <GiTeacher className="side-bar__icon" />
-        Tutors
+        <p>Tutors</p>
       </div>
 
       <div
@@ -45,7 +45,7 @@ export const SideBar = () => {
         onClick={() => history.push("/course")}
       >
         <RiBookletFill className="side-bar__icon" />
-        Courses
+        <p> Courses</p>
       </div>
       <div
         className={
@@ -55,7 +55,7 @@ export const SideBar = () => {
         }
         onClick={() => history.push("/customer")}
       >
-        <HiUserCircle className="side-bar__icon" /> Users
+        <HiUserCircle className="side-bar__icon" /> <p>Users</p>
       </div>
 
       <div
@@ -67,7 +67,7 @@ export const SideBar = () => {
         onClick={() => history.push("/payment")}
       >
         <MdPayment className="side-bar__icon" />
-        Payment
+        <p> Payment</p>
       </div>
     </div>
   );
