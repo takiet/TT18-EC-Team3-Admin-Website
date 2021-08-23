@@ -4,6 +4,7 @@ import "./Input.scss";
 export const Input = React.forwardRef<any, IInput>(
   (
     {
+      id,
       className,
       name,
       placeholder,
@@ -14,6 +15,9 @@ export const Input = React.forwardRef<any, IInput>(
       onChange,
       onBlur,
       type,
+      onFocus,
+      autoComplete,
+      onkeypress,
     },
     ref
   ) => {
@@ -25,6 +29,7 @@ export const Input = React.forwardRef<any, IInput>(
           style={{ marginBottom, marginTop }}
         >
           <input
+            id={id}
             autoFocus={isFocus}
             placeholder={placeholder}
             name={name}
@@ -32,6 +37,9 @@ export const Input = React.forwardRef<any, IInput>(
             onChange={onChange}
             ref={ref}
             type={type}
+            autoComplete="off"
+            onFocus={onFocus}
+            onKeyPress={onkeypress}
           />
         </div>
       </div>

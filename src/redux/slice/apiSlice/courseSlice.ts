@@ -1,4 +1,8 @@
-import { doGetAllListCourse, doGetOneCourse } from "./../../asyncAction/course";
+import {
+  doAddCourse,
+  doGetAllListCourse,
+  doGetOneCourse,
+} from "./../../asyncAction/course";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 type TTnitialState = {
@@ -20,6 +24,7 @@ export const courseSlice = createSlice({
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
+    //get all course
     builder.addCase(doGetAllListCourse.pending, (state) => {
       state.isLoading = true;
     });
@@ -34,6 +39,7 @@ export const courseSlice = createSlice({
       state.isLoading = false;
       state.err = action.error;
     });
+    //get one course
     builder.addCase(doGetOneCourse.pending, (state) => {
       state.isLoading = true;
     });
@@ -45,6 +51,17 @@ export const courseSlice = createSlice({
       }
     );
     builder.addCase(doGetOneCourse.rejected, (state, action) => {
+      state.isLoading = false;
+      state.err = action.error;
+    });
+    //add tutor
+    builder.addCase(doAddCourse.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(doAddCourse.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(doAddCourse.rejected, (state, action) => {
       state.isLoading = false;
       state.err = action.error;
     });

@@ -41,6 +41,7 @@ export const Course: React.FC = () => {
                       key={index}
                       index={index + 1}
                       name={item.name}
+                      avatar={item.avatar}
                       // tutor={item.tutorID}
                       price={item.price}
                       // email={item.email}
