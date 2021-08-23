@@ -53,3 +53,20 @@ interface IResAvailableTime {
   start: string;
   time: string;
 }
+
+
+interface IResGetCourse {
+  _id?: string;
+  name?: string;
+  duration?: string;
+  subject?: any;
+  syllabus?: any;
+  noLike?: number;
+  rating?: number;
+}
+interface IResGetOneCourse {
+  course: IResGetCourse;
+}
+interface IResGetListAllCourse {
+  result: Array<IResGetCourse>;
+}
