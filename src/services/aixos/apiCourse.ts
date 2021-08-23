@@ -7,7 +7,6 @@ export const apiCourse = {
   getAllListCourse: () => {
     const url = baseURL + "get-all";
     console.log(url);
-    
     return axiosCommon.get(url);
   },
   getOneCourse: (params: { uid: string }) => {

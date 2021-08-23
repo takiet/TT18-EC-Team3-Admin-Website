@@ -54,7 +54,6 @@ interface IResAvailableTime {
   time: string;
 }
 
-
 interface IResGetCourse {
   _id?: string;
   name?: string;
@@ -63,6 +62,8 @@ interface IResGetCourse {
   syllabus?: any;
   noLike?: number;
   rating?: number;
+  tutorID?: Array<{ _id?: string; item?: string }>;
+  price?: number;
 }
 interface IResGetOneCourse {
   course: IResGetCourse;

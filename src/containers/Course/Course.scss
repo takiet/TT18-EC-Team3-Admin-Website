@@ -37,14 +37,14 @@
     width: 60px;
     font-size: 24px !important;
   }
-  &__name {
+  &__course-name {
     width: 300px;
   }
-  &__phone {
+  &__tutor-name {
+    width: 300px;
+  }
+  &__price {
     width: 180px;
-  }
-  &__email {
-    width: 300px;
   }
   &__button {
     width: 60px;
@@ -70,4 +70,3 @@
     align-items: center;
   }
 }
-

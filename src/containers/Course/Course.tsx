@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { TutorRow } from "../../components";
+import { CourseRow } from "../../components";
 import { ScrollHorizontal } from "../../components/common/ScrollHorizontal/ScrollHorizontal";
 import { doGetAllListCourse, doGetAllListTutor } from "../../redux";
 import { RootState } from "../../redux/rootReducer";
@@ -12,12 +12,11 @@ export const Course: React.FC = () => {
   const listAllCourse = useSelector(
     (state: RootState) => state.courseSlice.listAllCourse
   );
-console.log(listAllCourse);
+  console.log(listAllCourse);
 
   useEffect(() => {
     dispatch(doGetAllListCourse());
     dispatch(doGetAllListTutor());
-
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className="container">
@@ -29,9 +28,9 @@ console.log(listAllCourse);
                 <tr>
                   <th className="course-table__edit"></th>
                   <th className="course-table__no-order">#</th>
-                  <th className="course-table__name">Name</th>
-                  <th className="course-table__phone">Phone Number</th>
-                  <th className="course-table__email">Email</th>
+                  <th className="course-table__course-name">Course Name</th>
+                  <th className="course-table__tutor-name">Tutor Name</th>
+                  <th className="course-table__price">Price</th>
                   <th className="course-table__button"></th>
                 </tr>
               </thead>
@@ -39,13 +38,14 @@ console.log(listAllCourse);
               <tbody>
                 {listAllCourse.map((item, index) => {
                   return (
-                    <TutorRow
+                    <CourseRow
                       key={index}
                       index={index + 1}
                       name={item.name}
+                      // tutor={item.tutorID}
+                      price={item.price}
                       // email={item.email}
                       // phone={item.phone}
-                      // avatar={item.avatar}
                     />
                   );
                 })}
