@@ -12,19 +12,13 @@ export const Routers = () => {
       <Switch>
         <PrivateRouter
           exact={true}
-          path={"/"}
-          component={Homepage}
-          layout={SidebarLayout}
-        />
-        <PrivateRouter
-          exact={true}
           path={"/customer"}
           component={Customer}
           layout={SidebarLayout}
         />
         <PrivateRouter
           exact={true}
-          path={"/tutor"}
+          path={"/"}
           component={Tutor}
           layout={SidebarLayout}
         />

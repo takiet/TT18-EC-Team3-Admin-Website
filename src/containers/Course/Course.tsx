@@ -12,7 +12,6 @@ export const Course: React.FC = () => {
   const listAllCourse = useSelector(
     (state: RootState) => state.courseSlice.listAllCourse
   );
-  console.log(listAllCourse);
 
   useEffect(() => {
     dispatch(doGetAllListCourse());
