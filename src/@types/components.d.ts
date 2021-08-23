@@ -109,3 +109,20 @@ interface ITutorRow {
   email?: string;
   avatar?: string;
 }
+
+interface ITextarea extends IStyle {
+  name?: string;
+  label?: string;
+  placeholder?: string;
+  value?: string | number;
+  onChange?: React.ChangeEventHandler<HTMLTextAreaElement> | undefined;
+  maxLength?: number | undefined;
+  onBlur?: React.FocusEventHandler<HTMLTextAreaElement> | undefined;
+  background?: Property.Background<string | number> | undefined;
+  borderRadius?: string | undefined;
+  width?: string | undefined;
+  height?: string | undefined;
+  className?: string | undefined;
+  error?: string | any;
+  defaultValue?: string | number;
+}

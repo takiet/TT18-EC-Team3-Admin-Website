@@ -22,8 +22,8 @@
   text-align: center;
   &--white {
     background: transparent;
+    border: 2px solid $primary-color;
     color: black;
-    border: none;
     box-shadow: none;
   }
   &:focus {
