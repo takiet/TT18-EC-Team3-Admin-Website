@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { Homepage, Tutor } from "../containers";
+import { Course, Homepage, Tutor } from "../containers";
 import { Customer } from "../containers/Customer/Customer";
 import { Login } from "../containers/Login/Login";
 import { BlankLayout, SidebarLayout } from "../layouts";
@@ -32,6 +32,12 @@ export const Routers = () => {
           exact={true}
           path={"/payment"}
           component={Homepage}
+          layout={SidebarLayout}
+        />
+        <PrivateRouter
+          exact={true}
+          path={"/course"}
+          component={Course}
           layout={SidebarLayout}
         />
         <PublicRouter

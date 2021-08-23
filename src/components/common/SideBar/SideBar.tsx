@@ -34,6 +34,18 @@ export const SideBar = () => {
         <FaChalkboardTeacher className="side-bar__icon" />
         Tutors
       </div>
+
+      <div
+        className={
+          checkFocus(pathname, "/course")
+            ? "side-bar__item side-bar__clicked"
+            : "side-bar__item"
+        }
+        onClick={() => history.push("/course")}
+      >
+        <MdPayment className="side-bar__icon" />
+        Courses
+      </div>
       <div
         className={
           checkFocus(pathname, "/customer")
