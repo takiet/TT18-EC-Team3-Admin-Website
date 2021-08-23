@@ -94,6 +94,14 @@ interface ICourse {
   rating: number;
 }
 
+interface ICourseRow {
+  index?: number;
+  name?: string;
+  avatar?: string;
+  tutor?:any;
+  avatartutor?: string;
+  price?: number;
+}
 interface ITutorRow {
   index?: number;
   name?: string;
