@@ -3,9 +3,10 @@ import { Avatar } from "../Avatar/Avatar";
 import "./SideBar.scss";
 import { checkFocus, logout } from "../../../helpers";
 import { useHistory, useLocation } from "react-router";
-import { FiUser } from "react-icons/fi";
-import { FaChalkboardTeacher } from "react-icons/fa";
+import { HiUserCircle } from "react-icons/hi";
+import { GiTeacher } from "react-icons/gi";
 import { MdPayment } from "react-icons/md";
+import { RiBookletFill } from "react-icons/ri";
 export const SideBar = () => {
   const { pathname } = useLocation();
   const history = useHistory();
@@ -20,18 +21,18 @@ export const SideBar = () => {
       />
       <div className={"side-bar__item"} onClick={() => logout()}>
         <p style={{ textAlign: "center", width: "100%", background: "#aaa" }}>
-          Logout
+          LOGOUT
         </p>
       </div>
       <div
         className={
-          checkFocus(pathname, "/tutor")
+          checkFocus(pathname, "/")
             ? "side-bar__item side-bar__clicked"
             : "side-bar__item"
         }
-        onClick={() => history.push("/tutor")}
+        onClick={() => history.push("/")}
       >
-        <FaChalkboardTeacher className="side-bar__icon" />
+        <GiTeacher className="side-bar__icon" />
         Tutors
       </div>
 
@@ -43,7 +44,7 @@ export const SideBar = () => {
         }
         onClick={() => history.push("/course")}
       >
-        <MdPayment className="side-bar__icon" />
+        <RiBookletFill className="side-bar__icon" />
         Courses
       </div>
       <div
@@ -54,7 +55,7 @@ export const SideBar = () => {
         }
         onClick={() => history.push("/customer")}
       >
-        <FiUser className="side-bar__icon" /> Users
+        <HiUserCircle className="side-bar__icon" /> Users
       </div>
 
       <div
