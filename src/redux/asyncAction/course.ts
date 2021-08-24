@@ -24,3 +24,11 @@ export const doAddCourse = createAsyncThunk(
     return result.data;
   }
 );
+
+export const doUpdateCourse = createAsyncThunk(
+  "course@update",
+  async (params: any) => {
+    const result = await apiCourse.updateCourse(params);
+    return result.data;
+  }
+);

@@ -15,4 +15,8 @@ export const apiCourse = {
     const url = "admin/course/add";
     return axiosCommon.post(url, params);
   },
+  updateCourse: (params: { uid: string; data: any }) => {
+    const url = "admin/course/update";
+    return axiosCommon.post(url + "?uid=" + params.uid, params.data);
+  },
 };

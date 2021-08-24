@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
 import { Button, Input, MultiInput, Textarea } from "../../components/common";
-import { doGetAllListTutor, doGetOneCourse } from "../../redux";
+import { doGetAllListTutor, doGetOneCourse, doUpdateCourse } from "../../redux";
 import { useAppDispatch } from "../../redux/store";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
@@ -45,14 +45,14 @@ export const CourseDetail: React.FC = () => {
 
   //submit
   const onSubmit = (data: any) => {
-    // dispatch(doAddCourse(data))
-    //   .then(unwrapResult)
-    //   .then((result: any) => {
-    //     if (result) {
-    //       console.log("hihi", result.message);
-    //       if (result.message === "Success") history.goBack();
-    //     }
-    //   });
+    dispatch(doUpdateCourse({ uid: uid, data: data }))
+      .then(unwrapResult)
+      .then((result: any) => {
+        if (result) {
+          console.log("hihi", result);
+          if (result.message === "Success") history.goBack();
+        }
+      });
     console.log(data);
   };
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -77,7 +77,6 @@ export const CourseDetail: React.FC = () => {
       .then(unwrapResult)
       .then((result: any) => {
         if (result) {
-          
           reset({
             name: oneCourse.name,
             avatar: oneCourse.avatar,
@@ -165,7 +164,7 @@ export const CourseDetail: React.FC = () => {
             multiple
             options={listAllTutor}
             getOptionLabel={(option: any) => option.name}
-            defaultValue={oneCourse.tutorID}
+            // defaultValue={oneCourse.tutorID}
             style={{ width: "100%", marginBottom: 20 }}
             onChange={handleChange}
             renderInput={(params) => (
