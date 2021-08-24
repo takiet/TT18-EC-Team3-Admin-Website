@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import { Button, Input, MultiInput, Textarea } from "../../components/common";
-import { doAddCourse, doGetAllListTutor } from "../../redux";
+import { doGetAllListTutor, doGetOneCourse, doUpdateCourse } from "../../redux";
 import { useAppDispatch } from "../../redux/store";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import "./AddCourse.scss";
+import "./CourseDetail.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
 import { unwrapResult } from "@reduxjs/toolkit";
 
-const options = [];
 type FormValues = {
   name: string;
   avatar: string;
@@ -23,31 +22,46 @@ type FormValues = {
   subject: Array<{ item: string }>;
   tutor: Array<{ id: string }>;
 };
-export const AddCourse: React.FC = () => {
+export const CourseDetail: React.FC = () => {
   const history = useHistory();
   const dispatch = useAppDispatch();
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    formState: { errors },
-  } = useForm<FormValues>();
   const [syllabus, setSyllabus] = useState([]);
   const [subject, setSubject] = useState([]);
   const listAllTutor = useSelector(
     (state: RootState) => state.tutorSlice.listAllTutor
   );
+  const { uid } = useParams<{ uid: string }>();
+  const oneCourse = useSelector(
+    (state: RootState) => state.courseSlice.oneCourse
+  );
+
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+    reset,
+  } = useForm<FormValues>();
+
+  //submit
   const onSubmit = (data: any) => {
-    dispatch(doAddCourse(data))
+    dispatch(doUpdateCourse({ uid: uid, data: data }))
       .then(unwrapResult)
       .then((result: any) => {
         if (result) {
+          console.log("hihi", result);
           if (result.message === "Success") history.goBack();
         }
       });
+    console.log(data);
   };
-
   const [selectedOptions, setSelectedOptions] = useState([]);
+
+  //get data
+  useEffect(() => {
+    dispatch(doGetOneCourse({ uid: uid }));
+    window.scrollTo({ top: 0, left: 0 });
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   //handle change tutor array
   const handleChange = (event, value) => {
@@ -59,7 +73,22 @@ export const AddCourse: React.FC = () => {
 
   //init
   useEffect(() => {
-    dispatch(doGetAllListTutor());
+    dispatch(doGetAllListTutor())
+      .then(unwrapResult)
+      .then((result: any) => {
+        if (result) {
+          reset({
+            name: oneCourse.name,
+            avatar: oneCourse.avatar,
+            price: oneCourse.price,
+            duration: oneCourse.duration,
+            level: oneCourse.level,
+            overview: oneCourse.overview,
+            syllabus: oneCourse.syllabus,
+            subject: oneCourse.subject,
+          });
+        }
+      });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   //set syllabus
@@ -135,6 +164,7 @@ export const AddCourse: React.FC = () => {
             multiple
             options={listAllTutor}
             getOptionLabel={(option: any) => option.name}
+            // defaultValue={oneCourse.tutorID}
             style={{ width: "100%", marginBottom: 20 }}
             onChange={handleChange}
             renderInput={(params) => (
@@ -146,13 +176,12 @@ export const AddCourse: React.FC = () => {
               />
             )}
           />
-          <p>{}</p>
           <MultiInput
             label="Syllabus"
             onChange={(values) => {
               setSyllabus(values);
             }}
-            values={options}
+            values={oneCourse.syllabus}
             marginBottom={16}
           />
           <MultiInput
@@ -160,7 +189,7 @@ export const AddCourse: React.FC = () => {
             onChange={(values) => {
               setSubject(values);
             }}
-            values={options}
+            values={oneCourse.subject}
             marginBottom={16}
           />
         </div>

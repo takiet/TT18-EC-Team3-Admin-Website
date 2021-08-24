@@ -2,6 +2,7 @@ import {
   doAddCourse,
   doGetAllListCourse,
   doGetOneCourse,
+  doUpdateCourse,
 } from "./../../asyncAction/course";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
@@ -62,6 +63,17 @@ export const courseSlice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(doAddCourse.rejected, (state, action) => {
+      state.isLoading = false;
+      state.err = action.error;
+    });
+    //update tutor
+    builder.addCase(doUpdateCourse.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(doUpdateCourse.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(doUpdateCourse.rejected, (state, action) => {
       state.isLoading = false;
       state.err = action.error;
     });
