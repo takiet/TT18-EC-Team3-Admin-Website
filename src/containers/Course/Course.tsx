@@ -1,24 +1,33 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { CourseRow } from "../../components";
+import { Button } from "../../components/common";
 import { ScrollHorizontal } from "../../components/common/ScrollHorizontal/ScrollHorizontal";
-import { doGetAllListCourse, doGetAllListTutor } from "../../redux";
+import { doGetAllListCourse } from "../../redux";
 import { RootState } from "../../redux/rootReducer";
 import { useAppDispatch } from "../../redux/store";
 import "./Course.scss";
 
 export const Course: React.FC = () => {
   const dispatch = useAppDispatch();
+  const history = useHistory();
   const listAllCourse = useSelector(
     (state: RootState) => state.courseSlice.listAllCourse
   );
 
   useEffect(() => {
     dispatch(doGetAllListCourse());
-    dispatch(doGetAllListTutor());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className="container">
+      <Button
+        type="submit"
+        marginBottom={16}
+        onClick={() => history.push("/add-course")}
+      >
+        ADD
+      </Button>
       <div className="course-table">
         <ScrollHorizontal>
           <div className="table-responsive">
@@ -42,10 +51,7 @@ export const Course: React.FC = () => {
                       index={index + 1}
                       name={item.name}
                       avatar={item.avatar}
-                      // tutor={item.tutorID}
                       price={item.price}
-                      // email={item.email}
-                      // phone={item.phone}
                     />
                   );
                 })}

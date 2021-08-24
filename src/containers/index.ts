@@ -4,4 +4,4 @@ export * from "./Tutor/Tutor";
 export * from "./Payment/Payment";
 export * from "./Login/Login";
 export * from "./Course/Course";
-export * from "./CourseDetail/CourseDetail";
+export * from "./AddCourse/AddCourse";
