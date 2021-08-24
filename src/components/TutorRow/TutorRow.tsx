@@ -11,7 +11,7 @@ export const TutorRow: React.FC<ITutorRow> = ({
   avatar,
 }) => {
   return (
-    <tr className="tutor-row" key={index}>
+    <tr className="tutor-row" key={index} >
       <td>
         <GrEdit size={20} />
       </td>

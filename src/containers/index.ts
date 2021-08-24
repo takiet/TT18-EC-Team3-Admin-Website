@@ -5,3 +5,5 @@ export * from "./Payment/Payment";
 export * from "./Login/Login";
 export * from "./Course/Course";
 export * from "./AddCourse/AddCourse";
+export * from "./AddTutor/AddTutor";
+export * from "./CourseDetail/CourseDetail";
