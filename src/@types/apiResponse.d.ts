@@ -64,6 +64,7 @@ interface IResGetCourse {
   rating?: number;
   tutorID?: Array<{ _id?: string; item?: string }>;
   price?: number;
+  avatar?: string;
 }
 interface IResGetOneCourse {
   course: IResGetCourse;

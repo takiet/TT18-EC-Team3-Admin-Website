@@ -12,6 +12,20 @@ interface IStyle {
   paddingTop?: number;
   paddingLeft?: number;
 }
+interface IClassName {
+  className?: string;
+  width?: any;
+  marginBottom?: number;
+  margin?: number;
+  marginLeft?: number;
+  marginRight?: number;
+  marginTop?: number;
+  padding?: number;
+  paddingBottom?: number;
+  paddingRight?: number;
+  paddingTop?: number;
+  paddingLeft?: number;
+}
 
 interface IHeader {}
 
@@ -33,7 +47,7 @@ interface IInput extends IStyle {
   label?: string;
   placeholder?: string;
   value?: string;
-  type?: "text" | "password";
+  type?: "text" | "password" | "reset";
   error?: any;
   id?: string;
   isFocus?: boolean;
@@ -41,6 +55,9 @@ interface IInput extends IStyle {
   onClick?: any;
   onChange?: React.ChangeEventHandler<HTMLInputElement> | undefined;
   onBlur?: React.FocusEventHandler<HTMLInputElement> | undefined;
+  onFocus?: any | undefined;
+  autoComplete?: string | "";
+  onkeypress?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
 }
 
 interface IAvatar {
@@ -98,7 +115,7 @@ interface ICourseRow {
   index?: number;
   name?: string;
   avatar?: string;
-  tutor?:any;
+  tutor?: any;
   avatartutor?: string;
   price?: number;
 }
@@ -125,4 +142,20 @@ interface ITextarea extends IStyle {
   className?: string | undefined;
   error?: string | any;
   defaultValue?: string | number;
+}
+
+interface IMultiInput extends IClassName {
+  onkeypress?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
+  onChange: (value: any) => void;
+  label?: string;
+  isOver?: boolean;
+  removeItem?: any;
+  values?: Array<{ item: string }>;
+  onFocus?: any | undefined;
+  onBlur?: any | undefined;
+  register?: any;
+  titleName?: any;
+  handleRemoveTextHeader?: any;
+  mainTitle?: any;
+  errorTitle?: string;
 }

@@ -12,4 +12,8 @@ export const apiCourse = {
     const url = baseURL + "get-one";
     return axiosCommon.get(url + objToQuery(params));
   },
+  addCourse: (params: any) => {
+    const url = "admin/course/add";
+    return axiosCommon.post(url, params);
+  },
 };
