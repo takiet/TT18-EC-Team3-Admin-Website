@@ -126,6 +126,7 @@ interface ITutorRow {
   phone?: number;
   email?: string;
   avatar?: string;
+  onClick?: any;
 }
 
 interface ITextarea extends IStyle {

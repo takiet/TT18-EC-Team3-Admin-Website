@@ -24,9 +24,7 @@ export const Tutor: React.FC = () => {
       <Button
         type="submit"
         marginBottom={16}
-        onClick={() =>
-          history.push('/course-detail')
-        }
+        onClick={() => history.push("/add-tutor")}
       >
         ADD
       </Button>

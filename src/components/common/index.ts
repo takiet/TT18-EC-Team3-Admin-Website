@@ -5,3 +5,4 @@ export * from "./Label/Label";
 export * from "./SideBar/SideBar";
 export * from "./Textarea/Textarea";
 export * from "./MultiInput/MultiInput";
+export * from "./MaskInput/MaskInput";
