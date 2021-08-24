@@ -1,4 +1,3 @@
-import { objToQuery } from "../../helpers/common";
 import axiosCommon from "./axiosCommon";
 
 const baseURL = "course/";
@@ -10,7 +9,7 @@ export const apiCourse = {
   },
   getOneCourse: (params: { uid: string }) => {
     const url = baseURL + "get-one";
-    return axiosCommon.get(url + objToQuery(params));
+    return axiosCommon.get(url + "?uid=" + params.uid);
   },
   addCourse: (params: any) => {
     const url = "admin/course/add";

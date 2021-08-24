@@ -118,6 +118,7 @@ interface ICourseRow {
   tutor?: any;
   avatartutor?: string;
   price?: number;
+  onClick?: any;
 }
 interface ITutorRow {
   index?: number;

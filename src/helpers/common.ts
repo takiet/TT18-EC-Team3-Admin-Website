@@ -25,21 +25,18 @@ export const logout = () => {
 //   localStorage.removeItem(EToken.TokenJobs);
 // };
 
-export const objToQuery = (obj: any): string => {
-  if (!obj) return "";
+// export const objToQuery = (obj: any): string => {
+//   // if (!obj) return "";
 
-  var query = [];
+//   // var query = [];
 
-  for (var prop in obj) {
-    if (obj.hasOwnProperty(prop)) {
-      query.push(
-        // encodeURIComponent(prop) + "=" + encodeURIComponent(obj[prop])
-      );
-    }
-  }
-
-  return "?" + query.join("&");
-};
+//   // for (var prop in obj) {
+//   //   if (obj.hasOwnProperty(prop)) {
+//   //     query.push( encodeURIComponent(obj) + '=' + encodeURIComponent(obj[prop]));
+//   //   }
+//   // }
+//   // return "?" + query.join("&");
+// };
 
 export const defaultParamsAPI = (
   currentpage?: number | string,

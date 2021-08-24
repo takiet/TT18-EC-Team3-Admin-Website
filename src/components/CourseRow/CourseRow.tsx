@@ -10,11 +10,12 @@ export const CourseRow: React.FC<ICourseRow> = ({
   avatartutor,
   tutor,
   price,
+  onClick,
 }) => {
   return (
-    <tr className="course-row" key={index}>
+    <tr className="course-row" key={index} onClick={onClick}>
       <td>
-        <GrEdit size={20} />
+        <GrEdit size={20} onClick={onClick} />
       </td>
       <td>{index}</td>
       <td>

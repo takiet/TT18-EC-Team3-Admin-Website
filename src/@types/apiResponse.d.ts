@@ -62,9 +62,13 @@ interface IResGetCourse {
   syllabus?: any;
   noLike?: number;
   rating?: number;
-  tutorID?: Array<{ _id?: string; item?: string }>;
+  tutorID?: Array<{ _id?: string }>;
   price?: number;
   avatar?: string;
+  overview?: string;
+  level?: string;
+  syllabus?: Array<{ item?: string }>;
+  subject?: Array<{ item?: string }>;
 }
 interface IResGetOneCourse {
   course: IResGetCourse;
