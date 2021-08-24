@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter, Switch } from "react-router-dom";
-import { Course, CourseDetail, Homepage, Tutor } from "../containers";
+import { AddCourse, Course, Homepage, Tutor } from "../containers";
 import { Customer } from "../containers/Customer/Customer";
 import { Login } from "../containers/Login/Login";
 import { BlankLayout, SidebarLayout } from "../layouts";
@@ -36,8 +36,8 @@ export const Routers = () => {
         />
          <PrivateRouter
           exact={true}
-          path={"/course-detail"}
-          component={CourseDetail}
+          path={"/add-course"}
+          component={AddCourse}
           layout={SidebarLayout}
         />
         <PublicRouter
