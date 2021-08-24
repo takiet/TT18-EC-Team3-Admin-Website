@@ -8,16 +8,16 @@ import {
   MultiInput,
   Textarea,
 } from "../../components/common";
-import { doGetAllListCourse } from "../../redux";
+import { doAddTutor, doGetAllListCourse } from "../../redux";
 import { useAppDispatch } from "../../redux/store";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
 import FormControl from "@material-ui/core/FormControl";
 import "./AddTutor.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 const options = [];
 type FormValues = {
@@ -61,14 +61,13 @@ export const AddTutor: React.FC = () => {
     (state: RootState) => state.courseSlice.listAllCourse
   );
   const onSubmit = (data: any) => {
-    // dispatch(doAddCourse(data))
-    //   .then(unwrapResult)
-    //   .then((result: any) => {
-    //     if (result) {
-    //       if (result.message === "Success") history.goBack();
-    //     }
-    //   });
-    console.log(data);
+    dispatch(doAddTutor(data))
+      .then(unwrapResult)
+      .then((result: any) => {
+        if (result) {
+          if (result.message === "Success") history.goBack();
+        }
+      });
   };
 
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -111,7 +110,7 @@ export const AddTutor: React.FC = () => {
     setValue("education", education); // eslint-disable-next-line
   }, [education]);
 
-  //set tutor
+  //set course
   useEffect(() => {
     let temp = selectedOptions.map((str) => ({ id: str }));
     setValue("course", temp); // eslint-disable-next-line
@@ -120,7 +119,7 @@ export const AddTutor: React.FC = () => {
   return (
     <form className="course-detail" onSubmit={handleSubmit(onSubmit)}>
       <div className="course-detail__header">
-        <div className="course-detail__title">TUTOR DETAIL</div>
+        <div className="course-detail__title">ADD TUTOR</div>
         <div className="course-detail__button">
           <Button isWhite type="button" onClick={() => history.goBack()}>
             RETURN
