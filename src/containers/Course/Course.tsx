@@ -52,7 +52,7 @@ export const Course: React.FC = () => {
                       name={item.name}
                       avatar={item.avatar}
                       price={item.price}
-                      onClick={() => history.push(`/course-detail/${item._id}`)}
+                      onClick={() => {history.push(`/course-detail/${item._id}`)}}
                     />
                   );
                 })}

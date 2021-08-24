@@ -45,14 +45,14 @@ export const CourseDetail: React.FC = () => {
 
   //submit
   const onSubmit = (data: any) => {
-    dispatch(doUpdateCourse({ uid: uid, data: data }))
-      .then(unwrapResult)
-      .then((result: any) => {
-        if (result) {
-          console.log("hihi", result);
-          if (result.message === "Success") history.goBack();
-        }
-      });
+    // dispatch(doUpdateCourse({ uid: uid, data: data }))
+    //   .then(unwrapResult)
+    //   .then((result: any) => {
+    //     if (result) {
+    //       console.log("hihi", result);
+    //       if (result.message === "Success") history.goBack();
+    //     }
+    //   });
     console.log(data);
   };
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -60,8 +60,22 @@ export const CourseDetail: React.FC = () => {
   //get data
   useEffect(() => {
     dispatch(doGetOneCourse({ uid: uid }));
+    dispatch(doGetAllListTutor());
     window.scrollTo({ top: 0, left: 0 });
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    reset({
+      name: oneCourse.name,
+      avatar: oneCourse.avatar,
+      price: oneCourse.price,
+      duration: oneCourse.duration,
+      level: oneCourse.level,
+      overview: oneCourse.overview,
+      syllabus: oneCourse.syllabus,
+      subject: oneCourse.subject,
+    }); // eslint-disable-next-line
+  }, [oneCourse]);
 
   //handle change tutor array
   const handleChange = (event, value) => {
@@ -70,26 +84,6 @@ export const CourseDetail: React.FC = () => {
     });
     setSelectedOptions(tempArray);
   };
-
-  //init
-  useEffect(() => {
-    dispatch(doGetAllListTutor())
-      .then(unwrapResult)
-      .then((result: any) => {
-        if (result) {
-          reset({
-            name: oneCourse.name,
-            avatar: oneCourse.avatar,
-            price: oneCourse.price,
-            duration: oneCourse.duration,
-            level: oneCourse.level,
-            overview: oneCourse.overview,
-            syllabus: oneCourse.syllabus,
-            subject: oneCourse.subject,
-          });
-        }
-      });
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   //set syllabus
   useEffect(() => {
@@ -164,7 +158,7 @@ export const CourseDetail: React.FC = () => {
             multiple
             options={listAllTutor}
             getOptionLabel={(option: any) => option.name}
-            // defaultValue={oneCourse.tutorID}
+            // defaultValue={listAllTutor}
             style={{ width: "100%", marginBottom: 20 }}
             onChange={handleChange}
             renderInput={(params) => (
