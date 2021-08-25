@@ -7,6 +7,7 @@ import { HiUserCircle } from "react-icons/hi";
 import { GiTeacher } from "react-icons/gi";
 import { MdPayment } from "react-icons/md";
 import { RiBookletFill } from "react-icons/ri";
+import { IoTicketSharp } from "react-icons/io5";
 export const SideBar = () => {
   const { pathname } = useLocation();
   const history = useHistory();
@@ -53,7 +54,7 @@ export const SideBar = () => {
             ? " side-bar__item side-bar__clicked"
             : "side-bar__item"
         }
-        onClick={() => history.push("/customer")}
+        // onClick={() => history.push("/customer")}
       >
         <HiUserCircle className="side-bar__icon" /> <p>Users</p>
       </div>
@@ -64,10 +65,21 @@ export const SideBar = () => {
             ? "side-bar__item side-bar__clicked"
             : "side-bar__item"
         }
-        onClick={() => history.push("/payment")}
+        // onClick={() => history.push("/payment")}
       >
         <MdPayment className="side-bar__icon" />
         <p> Payment</p>
+      </div>
+      <div
+        className={
+          checkFocus(pathname, "/payment")
+            ? "side-bar__item side-bar__clicked"
+            : "side-bar__item"
+        }
+        // onClick={() => history.push("/payment")}
+      >
+        <IoTicketSharp className="side-bar__icon" />
+        <p> Voucher</p>
       </div>
     </div>
   );
