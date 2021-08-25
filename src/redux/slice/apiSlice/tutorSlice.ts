@@ -1,15 +1,17 @@
-import { doAddTutor } from "./../../asyncAction/tutor";
+import { doAddTutor, doGetOneTutor } from "./../../asyncAction/tutor";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { doGetAllListTutor } from "../../asyncAction";
 
 type TTnitialState = {
   listAllTutor: Array<IResTutor>;
+  tutor: IResOneTutor;
   isLoading: boolean;
   err: any;
 };
 
 const initialState = {
   listAllTutor: [],
+  tutor: {},
   isLoading: false,
   err: {},
 } as TTnitialState;
@@ -34,6 +36,22 @@ export const slice = createSlice({
       state.isLoading = false;
       state.err = action.error;
     });
+    //get one tutor
+    builder.addCase(doGetOneTutor.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(
+      doGetOneTutor.fulfilled,
+      (state, action: PayloadAction<IResGetOneTutor>) => {
+        state.tutor = action.payload.tutor;
+        state.isLoading = false;
+      }
+    );
+    builder.addCase(doGetOneTutor.rejected, (state, action) => {
+      state.isLoading = false;
+      state.err = action.error;
+    });
+
     //add tutor
     builder.addCase(doAddTutor.pending, (state) => {
       state.isLoading = true;

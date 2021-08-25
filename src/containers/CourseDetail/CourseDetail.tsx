@@ -2,14 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
 import { Button, Input, MultiInput, Textarea } from "../../components/common";
-import { doGetAllListTutor, doGetOneCourse, doUpdateCourse } from "../../redux";
+import { doGetAllListTutor, doGetOneCourse } from "../../redux";
 import { useAppDispatch } from "../../redux/store";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import "./CourseDetail.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
-import { unwrapResult } from "@reduxjs/toolkit";
 
 type FormValues = {
   name: string;

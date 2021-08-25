@@ -7,3 +7,4 @@ export * from "./Course/Course";
 export * from "./AddCourse/AddCourse";
 export * from "./AddTutor/AddTutor";
 export * from "./CourseDetail/CourseDetail";
+export * from "./TutorDetail/TutorDetail";
