@@ -3,10 +3,9 @@ import { Avatar } from "../Avatar/Avatar";
 import "./SideBar.scss";
 import { checkFocus, logout } from "../../../helpers";
 import { useHistory, useLocation } from "react-router";
-import { HiUserCircle } from "react-icons/hi";
 import { GiTeacher } from "react-icons/gi";
 import { MdPayment } from "react-icons/md";
-import { RiBookletFill } from "react-icons/ri";
+import { RiBillFill, RiBookletFill } from "react-icons/ri";
 import { IoTicketSharp } from "react-icons/io5";
 export const SideBar = () => {
   const { pathname } = useLocation();
@@ -50,13 +49,13 @@ export const SideBar = () => {
       </div>
       <div
         className={
-          checkFocus(pathname, "/customer")
+          checkFocus(pathname, "/order")
             ? " side-bar__item side-bar__clicked"
             : "side-bar__item"
         }
-        // onClick={() => history.push("/customer")}
+        onClick={() => history.push("/order")}
       >
-        <HiUserCircle className="side-bar__icon" /> <p>Users</p>
+        <RiBillFill className="side-bar__icon" /> <p>Orders</p>
       </div>
 
       <div
@@ -65,16 +64,16 @@ export const SideBar = () => {
             ? "side-bar__item side-bar__clicked"
             : "side-bar__item"
         }
-        // onClick={() => history.push("/payment")}
+        onClick={() => history.push("/payment")}
       >
         <MdPayment className="side-bar__icon" />
         <p> Payment</p>
       </div>
       <div
         className={
-          checkFocus(pathname, "/payment")
-            ? "side-bar__item side-bar__clicked"
-            : "side-bar__item"
+          // checkFocus(pathname, "/payment")
+            // ? "side-bar__item side-bar__clicked"
+            "side-bar__item"
         }
         // onClick={() => history.push("/payment")}
       >

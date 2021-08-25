@@ -11,6 +11,7 @@ export const CourseRow: React.FC<ICourseRow> = ({
   tutor,
   price,
   onClick,
+  duration,
 }) => {
   return (
     <tr className="course-row" key={index} onClick={onClick}>
@@ -34,19 +35,7 @@ export const CourseRow: React.FC<ICourseRow> = ({
         </div>
       </td>
       <td>
-        <div className="course-row__name">
-          <Avatar
-            image={
-              avatar === ""
-                ? "https://iso.500px.com/wp-content/uploads/2016/03/stock-photo-142984111.jpg"
-                : avatar
-            }
-            height={50}
-            width={50}
-            marginRight={12}
-          />
-          {tutor}
-        </div>
+        <div className="course-row__name">{duration}</div>
       </td>
       <td className="course-row__price"> {price}</td>
       <td>

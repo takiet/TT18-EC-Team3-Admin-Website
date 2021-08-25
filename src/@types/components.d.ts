@@ -119,6 +119,7 @@ interface ICourseRow {
   avatartutor?: string;
   price?: number;
   onClick?: any;
+  duration?:string;
 }
 interface ITutorRow {
   index?: number;
@@ -126,6 +127,18 @@ interface ITutorRow {
   phone?: number;
   email?: string;
   avatar?: string;
+  onClick?: any;
+}
+
+interface IPaymentRow {
+  index?: number;
+  tutorname?: string;
+  tutoravatar?: string;
+  coursename?: string;
+  courseavatar?: string;
+  username?: string;
+  useravatar?: string;
+  amount?: number;
   onClick?: any;
 }
 

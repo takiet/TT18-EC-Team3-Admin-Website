@@ -5,7 +5,7 @@ import {
   AddTutor,
   Course,
   CourseDetail,
-  Homepage,
+  Payment,
   Tutor,
 } from "../containers";
 import { Customer } from "../containers/Customer/Customer";
@@ -45,7 +45,13 @@ export const Routers = () => {
         <PrivateRouter
           exact={true}
           path={"/payment"}
-          component={Homepage}
+          component={Payment}
+          layout={SidebarLayout}
+        />
+         <PrivateRouter
+          exact={true}
+          path={"/order"}
+          component={Payment}
           layout={SidebarLayout}
         />
         <PrivateRouter

@@ -37,7 +37,7 @@ export const Course: React.FC = () => {
                   <th className="course-table__edit"></th>
                   <th className="course-table__no-order">#</th>
                   <th className="course-table__course-name">Course Name</th>
-                  <th className="course-table__tutor-name">Tutor Name</th>
+                  <th className="course-table__tutor-name">Duration</th>
                   <th className="course-table__price">Price</th>
                   <th className="course-table__button"></th>
                 </tr>
@@ -51,6 +51,7 @@ export const Course: React.FC = () => {
                       index={index + 1}
                       name={item.name}
                       avatar={item.avatar}
+                      duration={item.duration}
                       price={item.price}
                       onClick={() => {history.push(`/course-detail/${item._id}`)}}
                     />
