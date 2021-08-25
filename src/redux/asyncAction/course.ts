@@ -19,7 +19,7 @@ export const doGetOneCourse = createAsyncThunk(
 
 export const doAddCourse = createAsyncThunk(
   "course@add",
-  async (params: any) => {
+  async (params: IParamsUpdateCourse) => {
     const result = await apiCourse.addCourse(params);
     return result.data;
   }
@@ -27,7 +27,7 @@ export const doAddCourse = createAsyncThunk(
 
 export const doUpdateCourse = createAsyncThunk(
   "course@update",
-  async (params: any) => {
+  async (params: IParamsUpdateCourse) => {
     const result = await apiCourse.updateCourse(params);
     return result.data;
   }

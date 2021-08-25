@@ -1,4 +1,8 @@
-import { doAddTutor, doGetOneTutor } from "./../../asyncAction/tutor";
+import {
+  doAddTutor,
+  doGetOneTutor,
+  doUpdateTutor,
+} from "./../../asyncAction/tutor";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { doGetAllListTutor } from "../../asyncAction";
 
@@ -60,6 +64,17 @@ export const slice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(doAddTutor.rejected, (state, action) => {
+      state.isLoading = false;
+      state.err = action.error;
+    });
+    //update tutor
+    builder.addCase(doUpdateTutor.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(doUpdateTutor.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(doUpdateTutor.rejected, (state, action) => {
       state.isLoading = false;
       state.err = action.error;
     });

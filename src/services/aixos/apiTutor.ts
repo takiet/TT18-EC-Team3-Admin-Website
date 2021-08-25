@@ -15,4 +15,8 @@ export const apiTutor = {
     const url = "admin/tutor/add";
     return axiosCommon.post(url, params);
   },
+  updateTutor: (params: IParamsUpdateTutor) => {
+    const url = "admin/tutor/update";
+    return axiosCommon.post(url, params);
+  },
 };

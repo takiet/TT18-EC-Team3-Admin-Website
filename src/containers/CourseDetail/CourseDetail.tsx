@@ -2,13 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
 import { Button, Input, MultiInput, Textarea } from "../../components/common";
-import { doGetAllListTutor, doGetOneCourse } from "../../redux";
+import { doGetAllListTutor, doGetOneCourse, doUpdateCourse } from "../../redux";
 import { useAppDispatch } from "../../redux/store";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import "./CourseDetail.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
+import { unwrapResult } from "@reduxjs/toolkit";
 
 type FormValues = {
   name: string;
@@ -19,7 +20,7 @@ type FormValues = {
   overview: string;
   syllabus: Array<{ item: string }>;
   subject: Array<{ item: string }>;
-  tutor: Array<{ id: string }>;
+  // tutor: Array<{ id: string }>;
 };
 export const CourseDetail: React.FC = () => {
   const history = useHistory();
@@ -44,15 +45,13 @@ export const CourseDetail: React.FC = () => {
 
   //submit
   const onSubmit = (data: any) => {
-    // dispatch(doUpdateCourse({ uid: uid, data: data }))
-    //   .then(unwrapResult)
-    //   .then((result: any) => {
-    //     if (result) {
-    //       console.log("hihi", result);
-    //       if (result.message === "Success") history.goBack();
-    //     }
-    //   });
-    console.log(data);
+    dispatch(doUpdateCourse({ cid: uid, value: data }))
+      .then(unwrapResult)
+      .then((result: any) => {
+        if (result) {
+          if (result.ok === 1) history.goBack();
+        }
+      });
   };
   const [selectedOptions, setSelectedOptions] = useState([]);
 
@@ -71,8 +70,6 @@ export const CourseDetail: React.FC = () => {
       duration: oneCourse.duration,
       level: oneCourse.level,
       overview: oneCourse.overview,
-      syllabus: oneCourse.syllabus,
-      subject: oneCourse.subject,
     }); // eslint-disable-next-line
   }, [oneCourse]);
 
@@ -96,8 +93,8 @@ export const CourseDetail: React.FC = () => {
 
   //set tutor
   useEffect(() => {
-    let temp = selectedOptions.map((str) => ({ id: str }));
-    setValue("tutor", temp); // eslint-disable-next-line
+    // let temp = selectedOptions.map((str) => ({ id: str }));
+    // setValue("tutor", temp); // eslint-disable-next-line
   }, [selectedOptions]);
 
   return (

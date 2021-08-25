@@ -3,7 +3,12 @@ interface IParamsLogin {
   password: string;
 }
 
-interface IParamsAddTutor {
-  // username: string;
-  // password: string;
+interface IParamsUpdateCourse {
+  cid: string;
+  value: any;
+}
+
+interface IParamsUpdateTutor {
+  uid: string;
+  value: any;
 }

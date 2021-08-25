@@ -8,7 +8,7 @@ import {
   MultiInput,
   Textarea,
 } from "../../components/common";
-import { doAddTutor, doGetAllListCourse, doGetOneTutor } from "../../redux";
+import { doGetAllListCourse, doGetOneTutor, doUpdateTutor } from "../../redux";
 import { useAppDispatch } from "../../redux/store";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
@@ -34,7 +34,7 @@ type FormValues = {
   exp: string;
   degree: Array<{ item: string }>;
   major: Array<{ item: string }>;
-  course: Array<{ id: string }>;
+  // course: Array<{ id: string }>;
   education: Array<{ item: string }>;
   DOB: string;
   available: Array<{ day: string; time: { start: string; end: string } }>;
@@ -62,7 +62,7 @@ export const TutorDetail: React.FC = () => {
   );
   const oneTutor = useSelector((state: RootState) => state.tutorSlice.tutor);
   const onSubmit = (data: any) => {
-    dispatch(doAddTutor(data))
+    dispatch(doUpdateTutor({ uid: uid, value: data }))
       .then(unwrapResult)
       .then((result: any) => {
         if (result) {
@@ -106,16 +106,12 @@ export const TutorDetail: React.FC = () => {
       phone: oneTutor.phone,
       address: oneTutor.address,
       gender: oneTutor.gender,
-      // level:
       accent: oneTutor.accent,
       noOngoingCourse: oneTutor.noOngoingCourse,
       quote: oneTutor.quote,
       personality: oneTutor.personality,
       exp: oneTutor.exp,
-      degree: oneTutor.degree,
-      major: oneTutor.major,
-      course: oneTutor.course,
-      education: oneTutor.education,
+      // course: oneTutor.course,
       DOB: oneTutor.DOB,
     }); // eslint-disable-next-line
   }, [oneTutor]);
@@ -137,8 +133,8 @@ export const TutorDetail: React.FC = () => {
 
   //set course
   useEffect(() => {
-    let temp = selectedOptions.map((str) => ({ id: str }));
-    setValue("course", temp); // eslint-disable-next-line
+    // let temp = selectedOptions.map((str) => ({ id: str }));
+    // setValue("course", temp); // eslint-disable-next-line
   }, [selectedOptions]);
 
   //render gender value

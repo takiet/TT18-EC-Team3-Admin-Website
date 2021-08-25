@@ -18,3 +18,11 @@ export const doAddTutor = createAsyncThunk("tutor@add", async (params: any) => {
   const result = await apiTutor.addTutor(params);
   return result.data;
 });
+
+export const doUpdateTutor = createAsyncThunk(
+  "tutor@update",
+  async (params: IParamsUpdateTutor) => {
+    const result = await apiTutor.updateTutor(params);
+    return result.data;
+  }
+);

@@ -55,7 +55,7 @@ export const courseSlice = createSlice({
       state.isLoading = false;
       state.err = action.error;
     });
-    //add tutor
+    //add 
     builder.addCase(doAddCourse.pending, (state) => {
       state.isLoading = true;
     });
@@ -66,7 +66,7 @@ export const courseSlice = createSlice({
       state.isLoading = false;
       state.err = action.error;
     });
-    //update tutor
+    //update 
     builder.addCase(doUpdateCourse.pending, (state) => {
       state.isLoading = true;
     });
