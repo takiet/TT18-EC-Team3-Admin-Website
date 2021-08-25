@@ -142,11 +142,11 @@ export const TutorDetail: React.FC = () => {
   }, [selectedOptions]);
 
   //render gender value
-  const renderGenderValue = (value: any) => {
-    console.log(value);
-    return '1'
-    
-  };
+  // const renderGenderValue = (value: any) => {
+  //   console.log(value);
+  //   return '1'
+
+  // };
 
   return (
     <form className="course-detail" onSubmit={handleSubmit(onSubmit)}>

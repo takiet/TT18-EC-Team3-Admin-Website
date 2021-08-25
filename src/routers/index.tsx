@@ -7,10 +7,10 @@ import {
   CourseDetail,
   Homepage,
   Tutor,
-  TutorDetail,
 } from "../containers";
 import { Customer } from "../containers/Customer/Customer";
 import { Login } from "../containers/Login/Login";
+import { TutorDetail } from "../containers/TutorDetail/TutorDetail";
 import { BlankLayout, SidebarLayout } from "../layouts";
 import { PrivateRouter } from "./PrivateRouter";
 import { PublicRouter } from "./PublicRouter";
