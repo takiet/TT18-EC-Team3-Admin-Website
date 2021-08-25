@@ -6,10 +6,15 @@ export const doGetAllListTutor = createAsyncThunk("tutor@get-all", async () => {
   return result.data;
 });
 
-export const doAddTutor = createAsyncThunk(
-  "tutor@add",
-  async (params: any) => {
-    const result = await apiTutor.addTutor(params);
+export const doGetOneTutor = createAsyncThunk(
+  "tutor@getOne",
+  async (params: { uid: string }) => {
+    const result = await apiTutor.getOneTutor(params);
     return result.data;
   }
 );
+
+export const doAddTutor = createAsyncThunk("tutor@add", async (params: any) => {
+  const result = await apiTutor.addTutor(params);
+  return result.data;
+});

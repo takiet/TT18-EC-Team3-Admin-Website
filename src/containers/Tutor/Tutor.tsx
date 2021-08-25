@@ -53,6 +53,7 @@ export const Tutor: React.FC = () => {
                       email={item.email}
                       phone={item.phone}
                       avatar={item.avatar}
+                      onClick={() => history.push(`/tutor-detail/${item._id}`)}
                     />
                   );
                 })}
