@@ -21,7 +21,7 @@ const initialState = {
 } as TTnitialState;
 
 export const slice = createSlice({
-  name: "budget@",
+  name: "tutor@",
   initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {

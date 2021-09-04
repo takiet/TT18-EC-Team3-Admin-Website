@@ -71,11 +71,11 @@ export const SideBar = () => {
       </div>
       <div
         className={
-          // checkFocus(pathname, "/payment")
-            // ? "side-bar__item side-bar__clicked"
-            "side-bar__item"
+          checkFocus(pathname, "/voucher")
+            ? "side-bar__item side-bar__clicked"
+            : "side-bar__item"
         }
-        // onClick={() => history.push("/payment")}
+        onClick={() => history.push("/voucher")}
       >
         <IoTicketSharp className="side-bar__icon" />
         <p> Voucher</p>

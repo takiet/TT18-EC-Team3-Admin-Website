@@ -7,6 +7,7 @@ import {
   CourseDetail,
   Payment,
   Tutor,
+  Voucher,
 } from "../containers";
 import { Customer } from "../containers/Customer/Customer";
 import { Login } from "../containers/Login/Login";
@@ -48,7 +49,7 @@ export const Routers = () => {
           component={Payment}
           layout={SidebarLayout}
         />
-         <PrivateRouter
+        <PrivateRouter
           exact={true}
           path={"/order"}
           component={Payment}
@@ -70,6 +71,12 @@ export const Routers = () => {
           exact={true}
           path={"/course-detail/:uid"}
           component={CourseDetail}
+          layout={SidebarLayout}
+        />
+        <PrivateRouter
+          exact={true}
+          path={"/voucher"}
+          component={Voucher}
           layout={SidebarLayout}
         />
         <PublicRouter

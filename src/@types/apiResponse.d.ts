@@ -103,3 +103,12 @@ interface IResGetOneCourse {
 interface IResGetListAllCourse {
   result: Array<IResGetCourse>;
 }
+
+interface IResVoucher {
+  _id?: string;
+  code?: string;
+  from?: Date;
+  to?: Date;
+  discount?: number;
+  type?: boolean;
+}
