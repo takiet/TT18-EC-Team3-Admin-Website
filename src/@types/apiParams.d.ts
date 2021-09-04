@@ -12,3 +12,8 @@ interface IParamsUpdateTutor {
   uid: string;
   value: any;
 }
+
+interface IParamsUpdateVoucher {
+  vid: string;
+  value: any;
+}

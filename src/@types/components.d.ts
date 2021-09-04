@@ -47,7 +47,7 @@ interface IInput extends IStyle {
   label?: string;
   placeholder?: string;
   value?: string;
-  type?: "text" | "password" | "reset";
+  type?: "text" | "password" | "reset" | "date" | "datetime-local";
   error?: any;
   id?: string;
   isFocus?: boolean;
@@ -58,6 +58,7 @@ interface IInput extends IStyle {
   onFocus?: any | undefined;
   autoComplete?: string | "";
   onkeypress?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
+  defaultValue?:any;
 }
 
 interface IAvatar {

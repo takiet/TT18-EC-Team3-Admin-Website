@@ -21,11 +21,7 @@ export const Voucher: React.FC = () => {
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <div className="container">
-      <Button
-        type="submit"
-        marginBottom={16}
-        onClick={() => history.push("/add-course")}
-      >
+      <Button marginBottom={16} onClick={() => history.push("/add-voucher")}>
         ADD
       </Button>
       <div className="voucher-table">
@@ -56,7 +52,17 @@ export const Voucher: React.FC = () => {
                       discount={item.discount}
                       type={item.type}
                       onClick={() => {
-                        history.push(`/course-detail/${item._id}`);
+                        history.push({
+                          pathname: `/voucher-detail`,
+                          state: {
+                            _id: item._id,
+                            code: item.code,
+                            from: item.from,
+                            to: item.to,
+                            discount: item.discount,
+                            type: item.type,
+                          },
+                        });
                       }}
                     />
                   );

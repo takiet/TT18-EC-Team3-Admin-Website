@@ -9,3 +9,4 @@ export * from "./AddTutor/AddTutor";
 export * from "./CourseDetail/CourseDetail";
 export * from "./TutorDetail/TutorDetail";
 export * from "./Voucher/Voucher";
+export * from "./AddVoucher/AddVoucher";

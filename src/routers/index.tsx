@@ -3,6 +3,7 @@ import { BrowserRouter, Switch } from "react-router-dom";
 import {
   AddCourse,
   AddTutor,
+  AddVoucher,
   Course,
   CourseDetail,
   Payment,
@@ -12,6 +13,7 @@ import {
 import { Customer } from "../containers/Customer/Customer";
 import { Login } from "../containers/Login/Login";
 import { TutorDetail } from "../containers/TutorDetail/TutorDetail";
+import { VoucherDetail } from "../containers/VoucherDetail/VoucherDetail";
 import { BlankLayout, SidebarLayout } from "../layouts";
 import { PrivateRouter } from "./PrivateRouter";
 import { PublicRouter } from "./PublicRouter";
@@ -77,6 +79,18 @@ export const Routers = () => {
           exact={true}
           path={"/voucher"}
           component={Voucher}
+          layout={SidebarLayout}
+        />
+        <PrivateRouter
+          exact={true}
+          path={"/add-voucher"}
+          component={AddVoucher}
+          layout={SidebarLayout}
+        />
+        <PrivateRouter
+          exact={true}
+          path={"/voucher-detail"}
+          component={VoucherDetail}
           layout={SidebarLayout}
         />
         <PublicRouter

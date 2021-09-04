@@ -24,8 +24,8 @@ export const doAddVoucher = createAsyncThunk(
 
 export const doUpdateVoucher = createAsyncThunk(
   "voucher@update",
-  async (params: any) => {
-    const result = await apiVoucher.addVoucher(params);
+  async (params: IParamsUpdateVoucher) => {
+    const result = await apiVoucher.updateVoucher(params);
     return result.data;
   }
 );

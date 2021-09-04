@@ -12,11 +12,11 @@ export const apiVoucher = {
   //     return axiosCommon.get(url + "?uid=" + params.uid);
   //   },
   addVoucher: (params: any) => {
-    const url = "add";
+    const url = baseURL + "add";
     return axiosCommon.post(url, params);
   },
-  updateVoucher: (params: any) => {
-    const url = "update";
+  updateVoucher: (params: IParamsUpdateVoucher) => {
+    const url = baseURL + "update";
     return axiosCommon.post(url, params);
   },
 };

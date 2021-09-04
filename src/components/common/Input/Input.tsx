@@ -19,6 +19,7 @@ export const Input = React.forwardRef<any, IInput>(
       autoComplete,
       onkeypress,
       error,
+      defaultValue
     },
     ref
   ) => {
@@ -41,6 +42,7 @@ export const Input = React.forwardRef<any, IInput>(
             autoComplete="off"
             onFocus={onFocus}
             onKeyPress={onkeypress}
+            defaultValue={defaultValue}
           />
         </div>
         {error && <div className="input__error">{error}</div>}
