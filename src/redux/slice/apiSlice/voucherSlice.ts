@@ -2,6 +2,7 @@ import {
   doGetAllVoucher,
   doAddVoucher,
   doUpdateVoucher,
+  doDeleteVoucher,
 } from "./../../asyncAction/voucher";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
@@ -20,7 +21,17 @@ const initialState = {
 export const voucherSlice = createSlice({
   name: "voucher@",
   initialState: initialState,
-  reducers: {},
+  reducers: {
+    doFakeDeleteVoucher(state, action: PayloadAction<{ _id?: string }>) {
+      const remove = state.listAllVoucher.filter((item) => {
+        if (item._id === action.payload._id) {
+          return false;
+        }
+        return true;
+      });
+      state.listAllVoucher = remove;
+    },
+  },
   extraReducers: (builder) => {
     //get all tutors
     builder.addCase(doGetAllVoucher.pending, (state) => {
@@ -60,8 +71,20 @@ export const voucherSlice = createSlice({
       state.isLoading = false;
       state.err = action.error;
     });
+    //update tutor
+    builder.addCase(doDeleteVoucher.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(doDeleteVoucher.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(doDeleteVoucher.rejected, (state, action) => {
+      state.isLoading = false;
+      state.err = action.error;
+    });
   },
 });
 
-const { reducer } = voucherSlice;
+const { reducer, actions } = voucherSlice;
+export const { doFakeDeleteVoucher } = actions;
 export default reducer;

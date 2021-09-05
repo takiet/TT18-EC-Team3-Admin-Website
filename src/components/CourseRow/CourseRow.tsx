@@ -1,23 +1,21 @@
 import React from "react";
 import { Avatar } from "../common";
 import "./CourseRow.scss";
-import { GrEdit } from "react-icons/gr";
-import { MdBlock } from "react-icons/md";
+import { AiFillStar } from "react-icons/ai";
 export const CourseRow: React.FC<ICourseRow> = ({
   index,
   name,
   avatar,
-  avatartutor,
-  tutor,
   price,
   onClick,
   duration,
+  rating,
 }) => {
   return (
     <tr className="course-row" key={index} onClick={onClick}>
-      <td>
+      {/* <td>
         <GrEdit size={20} onClick={onClick} />
-      </td>
+      </td> */}
       <td>{index}</td>
       <td>
         <div className="course-row__name">
@@ -37,10 +35,16 @@ export const CourseRow: React.FC<ICourseRow> = ({
       <td>
         <div className="course-row__name">{duration}</div>
       </td>
-      <td className="course-row__price"> {price}</td>
       <td>
-        <MdBlock size={24} />
+        <span className="course-row__rating">
+          <AiFillStar size={22} style={{ marginRight: 8, color: "orange" }} />
+          {rating}
+        </span>
       </td>
+      <td className="course-row__price"> {price}</td>
+      {/* <td>
+        <MdBlock size={24} />
+      </td> */}
     </tr>
   );
 };

@@ -12,7 +12,8 @@
   &__price {
     text-align: center;
   }
-  &__name {
+  &__name,
+  &__rating {
     display: flex;
     align-items: center;
   }

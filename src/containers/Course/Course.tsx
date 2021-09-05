@@ -34,12 +34,13 @@ export const Course: React.FC = () => {
             <table style={{ width: "960px" }}>
               <thead>
                 <tr>
-                  <th className="course-table__edit"></th>
+                  {/* <th className="course-table__edit"></th> */}
                   <th className="course-table__no-order">#</th>
                   <th className="course-table__course-name">Course Name</th>
-                  <th className="course-table__tutor-name">Duration</th>
+                  <th className="course-table__duration">Duration</th>
+                  <th className="course-table__rating">Rating</th>
                   <th className="course-table__price">Price</th>
-                  <th className="course-table__button"></th>
+                  {/* <th className="course-table__button"></th> */}
                 </tr>
               </thead>
 
@@ -52,8 +53,11 @@ export const Course: React.FC = () => {
                       name={item.name}
                       avatar={item.avatar}
                       duration={item.duration}
+                      rating={item.rating}
                       price={item.price}
-                      onClick={() => {history.push(`/course-detail/${item._id}`)}}
+                      onClick={() => {
+                        history.push(`/course-detail/${item._id}`);
+                      }}
                     />
                   );
                 })}

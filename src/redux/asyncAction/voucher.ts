@@ -29,3 +29,11 @@ export const doUpdateVoucher = createAsyncThunk(
     return result.data;
   }
 );
+
+export const doDeleteVoucher = createAsyncThunk(
+  "voucher@delete",
+  async (params: { vid?: string }) => {
+    const result = await apiVoucher.deleteVoucher(params);
+    return result.data;
+  }
+);

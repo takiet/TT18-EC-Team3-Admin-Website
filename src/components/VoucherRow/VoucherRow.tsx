@@ -10,6 +10,7 @@ export const VoucherRow: React.FC<IVoucherRow> = ({
   to,
   discount,
   type,
+  onClickDelete,
 }) => {
   return (
     <tr className="course-row" key={index} onClick={onClick}>
@@ -23,7 +24,12 @@ export const VoucherRow: React.FC<IVoucherRow> = ({
         <div>{discount}</div>
       </td>
       <td className="course-row__price"> {type ? "Amount" : "Percentage"}</td>
-      <td>
+      <td
+        onClick={(e) => {
+          e.stopPropagation();
+          return onClickDelete();
+        }}
+      >
         <MdBlock size={24} />
       </td>
     </tr>

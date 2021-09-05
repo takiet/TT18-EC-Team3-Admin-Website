@@ -19,4 +19,8 @@ export const apiTutor = {
     const url = "admin/tutor/update";
     return axiosCommon.post(url, params);
   },
+  deleteTutor: (params: { uid: string }) => {
+    const url = "admin/tutor/delete-one";
+    return axiosCommon.post(url, params);
+  },
 };

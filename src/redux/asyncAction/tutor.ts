@@ -26,3 +26,11 @@ export const doUpdateTutor = createAsyncThunk(
     return result.data;
   }
 );
+
+export const doDeleteTutor = createAsyncThunk(
+  "tutor@delete",
+  async (params: { uid: string }) => {
+    const result = await apiTutor.deleteTutor(params);
+    return result.data;
+  }
+);

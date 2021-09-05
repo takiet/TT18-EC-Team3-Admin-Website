@@ -9,7 +9,7 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
-  .btn{
+  .btn {
     align-self: flex-end;
   }
 }
@@ -19,7 +19,9 @@
   border-radius: 10px;
   height: 100%;
   padding: 2rem;
-
+  td {
+    cursor: pointer;
+  }
   th {
     text-align: center;
     vertical-align: middle;
@@ -43,13 +45,16 @@
     font-size: 24px !important;
   }
   &__name {
-    width: 300px;
+    width: 280px;
   }
   &__phone {
     width: 180px;
   }
   &__email {
-    width: 300px;
+    width: 280px;
+  }
+  &__rating {
+    width: 100px;
   }
   &__button {
     width: 60px;
@@ -75,4 +80,3 @@
     align-items: center;
   }
 }
-

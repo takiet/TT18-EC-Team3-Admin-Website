@@ -1,5 +1,6 @@
 import {
   doAddTutor,
+  doDeleteTutor,
   doGetOneTutor,
   doUpdateTutor,
 } from "./../../asyncAction/tutor";
@@ -75,6 +76,17 @@ export const slice = createSlice({
       state.isLoading = false;
     });
     builder.addCase(doUpdateTutor.rejected, (state, action) => {
+      state.isLoading = false;
+      state.err = action.error;
+    });
+    //delete tutor
+    builder.addCase(doDeleteTutor.pending, (state) => {
+      state.isLoading = true;
+    });
+    builder.addCase(doDeleteTutor.fulfilled, (state) => {
+      state.isLoading = false;
+    });
+    builder.addCase(doDeleteTutor.rejected, (state, action) => {
       state.isLoading = false;
       state.err = action.error;
     });

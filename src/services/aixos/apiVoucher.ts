@@ -19,4 +19,8 @@ export const apiVoucher = {
     const url = baseURL + "update";
     return axiosCommon.post(url, params);
   },
+  deleteVoucher: (params: { vid?: string }) => {
+    const url = baseURL + "delete-one";
+    return axiosCommon.delete(url, { data: { params } });
+},
 };

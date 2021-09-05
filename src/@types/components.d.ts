@@ -58,7 +58,7 @@ interface IInput extends IStyle {
   onFocus?: any | undefined;
   autoComplete?: string | "";
   onkeypress?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
-  defaultValue?:any;
+  defaultValue?: any;
 }
 
 interface IAvatar {
@@ -121,6 +121,7 @@ interface ICourseRow {
   price?: number;
   onClick?: any;
   duration?: string;
+  rating?: number;
 }
 interface ITutorRow {
   index?: number;
@@ -129,6 +130,8 @@ interface ITutorRow {
   email?: string;
   avatar?: string;
   onClick?: any;
+  rating?: number;
+  onClickDelete?: any;
 }
 interface IPaymentRow {
   index?: number;
@@ -149,6 +152,7 @@ interface IVoucherRow {
   discount?: number;
   type?: boolean;
   onClick?: any;
+  onClickDelete?: any;
 }
 
 interface ITextarea extends IStyle {

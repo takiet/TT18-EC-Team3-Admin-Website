@@ -4,7 +4,11 @@ import { useHistory } from "react-router-dom";
 import { VoucherRow } from "../../components";
 import { Button } from "../../components/common";
 import { ScrollHorizontal } from "../../components/common/ScrollHorizontal/ScrollHorizontal";
-import { doGetAllVoucher } from "../../redux/asyncAction/voucher";
+import { doFakeDeleteVoucher } from "../../redux";
+import {
+  doDeleteVoucher,
+  doGetAllVoucher,
+} from "../../redux/asyncAction/voucher";
 import { RootState } from "../../redux/rootReducer";
 import { useAppDispatch } from "../../redux/store";
 import "./Voucher.scss";
@@ -19,6 +23,7 @@ export const Voucher: React.FC = () => {
   useEffect(() => {
     dispatch(doGetAllVoucher());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   return (
     <div className="container">
       <Button marginBottom={16} onClick={() => history.push("/add-voucher")}>
@@ -51,6 +56,10 @@ export const Voucher: React.FC = () => {
                       to={item.to}
                       discount={item.discount}
                       type={item.type}
+                      onClickDelete={() => {
+                        dispatch(doDeleteVoucher({ vid: item._id }));
+                        dispatch(doFakeDeleteVoucher({ _id: item._id }));
+                      }}
                       onClick={() => {
                         history.push({
                           pathname: `/voucher-detail`,

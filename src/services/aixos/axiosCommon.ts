@@ -8,7 +8,7 @@ const token = localStorage.getItem(EToken.loginToken);
 const axiosCommon = axios.create({
   baseURL: baseURL + "api/",
   headers: {
-    "content-type": "application/json",
+    "content-type": "application/json; charset=utf-8",
     Authorization: token,
   },
 });
