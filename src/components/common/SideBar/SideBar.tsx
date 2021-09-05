@@ -45,9 +45,9 @@ export const SideBar = () => {
         onClick={() => history.push("/course")}
       >
         <RiBookletFill className="side-bar__icon" />
-        <p> Courses</p>
+        <p>Courses</p>
       </div>
-      <div
+      {/* <div
         className={
           checkFocus(pathname, "/order")
             ? " side-bar__item side-bar__clicked"
@@ -56,7 +56,7 @@ export const SideBar = () => {
         onClick={() => history.push("/order")}
       >
         <RiBillFill className="side-bar__icon" /> <p>Orders</p>
-      </div>
+      </div> */}
 
       <div
         className={
@@ -67,7 +67,7 @@ export const SideBar = () => {
         onClick={() => history.push("/payment")}
       >
         <MdPayment className="side-bar__icon" />
-        <p> Payment</p>
+        <p>Payment</p>
       </div>
       <div
         className={
@@ -78,7 +78,7 @@ export const SideBar = () => {
         onClick={() => history.push("/voucher")}
       >
         <IoTicketSharp className="side-bar__icon" />
-        <p> Voucher</p>
+        <p>Vouchers</p>
       </div>
     </div>
   );

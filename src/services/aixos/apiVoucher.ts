@@ -21,6 +21,6 @@ export const apiVoucher = {
   },
   deleteVoucher: (params: { vid?: string }) => {
     const url = baseURL + "delete-one";
-    return axiosCommon.delete(url, { data: { params } });
-},
+    return axiosCommon.post(url, params);
+  },
 };

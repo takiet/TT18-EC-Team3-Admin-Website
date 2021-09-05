@@ -1,7 +1,6 @@
 import React from "react";
 import { Avatar } from "../common";
 import "./TutorRow.scss";
-import { MdBlock } from "react-icons/md";
 import { AiFillStar } from "react-icons/ai";
 export const TutorRow: React.FC<ITutorRow> = ({
   index,
@@ -42,14 +41,14 @@ export const TutorRow: React.FC<ITutorRow> = ({
           {rating}
         </span>
       </td>
-      <td
+      {/* <td
         onClick={(e) => {
           e.stopPropagation();
           return onClickDelete();
         }}
       >
         <MdBlock size={24} />
-      </td>
+      </td> */}
     </tr>
   );
 };

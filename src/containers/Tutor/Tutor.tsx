@@ -40,7 +40,7 @@ export const Tutor: React.FC = () => {
                   <th className="tutor-table__phone">Phone Number</th>
                   <th className="tutor-table__email">Email</th>
                   <th className="tutor-table__rating">Rating</th>
-                  <th className="tutor-table__button"></th>
+                  {/* <th className="tutor-table__button"></th> */}
                 </tr>
               </thead>
 
