@@ -132,6 +132,7 @@ interface ITutorRow {
   onClick?: any;
   rating?: number;
   onClickDelete?: any;
+  status?: number;
 }
 interface IPaymentRow {
   index?: number;
@@ -143,6 +144,9 @@ interface IPaymentRow {
   useravatar?: string;
   amount?: number;
   onClick?: any;
+  status?: number;
+  onClickRefund?: any;
+  onClickAccept?: any;
 }
 interface IVoucherRow {
   index?: number;
@@ -186,4 +190,23 @@ interface IMultiInput extends IClassName {
   handleRemoveTextHeader?: any;
   mainTitle?: any;
   errorTitle?: string;
+}
+
+interface IModal {
+  isShow?: boolean | string;
+  className?: string;
+  setIsShow?: any;
+  backgroundColorOverlay?: string;
+  classNameContainer?: string;
+}
+
+interface IModalConfirm {
+  name?: string;
+  className?: string;
+  isShow?: boolean | string;
+  isModalShown?: boolean;
+  onClickClose?: (event: any) => void;
+  onClick?: any;
+  classNameContainer?: string;
+  message?: any;
 }

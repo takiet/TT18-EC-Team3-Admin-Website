@@ -6,6 +6,7 @@ import {
   AddVoucher,
   Course,
   CourseDetail,
+  Homepage,
   Payment,
   Tutor,
   Voucher,
@@ -51,12 +52,12 @@ export const Routers = () => {
           component={Payment}
           layout={SidebarLayout}
         />
-        <PrivateRouter
+        {/* <PrivateRouter
           exact={true}
           path={"/order"}
           component={Payment}
           layout={SidebarLayout}
-        />
+        /> */}
         <PrivateRouter
           exact={true}
           path={"/course"}
@@ -98,6 +99,12 @@ export const Routers = () => {
           path={"/login"}
           component={Login}
           layout={BlankLayout}
+        />
+        <PublicRouter
+          exact={true}
+          path={"/order"}
+          component={Homepage}
+          layout={SidebarLayout}
         />
       </Switch>
     </BrowserRouter>

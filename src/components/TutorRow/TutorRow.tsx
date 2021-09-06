@@ -10,13 +10,9 @@ export const TutorRow: React.FC<ITutorRow> = ({
   avatar,
   onClick,
   rating,
-  onClickDelete,
 }) => {
   return (
     <tr className="tutor-row" key={index} onClick={onClick}>
-      {/* <td>
-        <GrEdit size={20} onClick={onClick} />
-      </td> */}
       <td>{index}</td>
       <td>
         <div className="tutor-row__name">
