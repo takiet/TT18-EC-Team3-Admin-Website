@@ -1,11 +1,16 @@
-import React, { FC } from "react";
+import React, { FC, Fragment } from "react";
 import { Loader } from "../Loader/Loader";
-import { Modal } from "../Modal/Modal";
 
 export const ModalLoader: FC<ILoaderModal> = ({ isShow }) => {
   return (
-    <Modal isShow={isShow}>
-      <Loader />
-    </Modal>
+    <Fragment>
+      {isShow && (
+        <div className={`modal`}>
+          <div className={`modal__container `}>
+            <Loader />
+          </div>
+        </div>
+      )}
+    </Fragment>
   );
 };
