@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
-import { Button, Input, MultiInput, Textarea } from "../../components/common";
+import {
+  Button,
+  Input,
+  ModalLoader,
+  MultiInput,
+  Textarea,
+} from "../../components/common";
 import { doAddCourse, doGetAllListTutor } from "../../redux";
 import { useAppDispatch } from "../../redux/store";
 import TextField from "@material-ui/core/TextField";
@@ -36,6 +42,9 @@ export const AddCourse: React.FC = () => {
   const [subject, setSubject] = useState([]);
   const listAllTutor = useSelector(
     (state: RootState) => state.tutorSlice.listAllTutor
+  );
+  const isLoading = useSelector(
+    (state: RootState) => state.courseSlice.isLoading
   );
   const onSubmit = (data: any) => {
     dispatch(doAddCourse(data))
@@ -165,6 +174,7 @@ export const AddCourse: React.FC = () => {
           />
         </div>
       </div>
+      <ModalLoader isShow={isLoading} />
     </form>
   );
 };

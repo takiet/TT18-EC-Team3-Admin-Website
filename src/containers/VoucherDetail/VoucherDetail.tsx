@@ -1,10 +1,13 @@
+import { Checkbox } from "@material-ui/core";
 import { unwrapResult } from "@reduxjs/toolkit";
 import moment from "moment";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import { Button, Input } from "../../components/common";
+import { Button, Input, Label, ModalLoader } from "../../components/common";
 import { doUpdateVoucher } from "../../redux/asyncAction/voucher";
+import { RootState } from "../../redux/rootReducer";
 import { useAppDispatch } from "../../redux/store";
 import "./VoucherDetail.scss";
 
@@ -18,6 +21,11 @@ type FormValues = {
 
 export const VoucherDetail: React.FC = () => {
   const history = useHistory();
+  const isLoading = useSelector(
+    (state: RootState) => state.voucherSlice.isLoading
+  );
+  const [checked, setChecked] = useState(true);
+
   const { state } = useLocation<{
     _id: string;
     code: string;
@@ -32,16 +40,23 @@ export const VoucherDetail: React.FC = () => {
     handleSubmit,
     reset,
     getValues,
+    setValue,
     formState: { errors },
   } = useForm<FormValues>();
 
   const onSubmit = (data: any) => {
+    setValue("type", checked);
     dispatch(doUpdateVoucher({ vid: state?._id, value: data }))
       .then(unwrapResult)
       .then((res: any) => {
         if (res) if (res.message === "Success") history.goBack();
       });
   };
+
+  useEffect(() => {
+    setChecked(state?.type);
+    // eslint-disable-next-line
+  }, [state?.type]);
 
   //init
   useEffect(() => {
@@ -50,6 +65,7 @@ export const VoucherDetail: React.FC = () => {
       from: moment(state?.from).format("YYYY-MM-DD"),
       to: moment(state?.to).format("YYYY-MM-DD"),
       discount: state?.discount,
+      type: state?.type,
     });
   }, [state]); // eslint-disable-line react-hooks/exhaustive-deps
 
@@ -88,6 +104,20 @@ export const VoucherDetail: React.FC = () => {
             })}
             error={errors.discount && errors.discount.message}
           />
+          <div style={{ display: "flex" }}>
+            {checked ? (
+              <Label title="TYPE ~ AMOUNT" />
+            ) : (
+              <Label title="TYPE ~ PERCENTAGE" />
+            )}
+            <Checkbox
+              defaultChecked={state?.type}
+              onChange={(event: any) => {
+                setChecked(event.target.checked);
+                setValue("type", event.target.checked);
+              }}
+            />
+          </div>
         </div>
         <div className="add-voucher__right">
           <Input
@@ -115,6 +145,7 @@ export const VoucherDetail: React.FC = () => {
           />
         </div>
       </div>
+      <ModalLoader isShow={isLoading} />
     </form>
   );
 };

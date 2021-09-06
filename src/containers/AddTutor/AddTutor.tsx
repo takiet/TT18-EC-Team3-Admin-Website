@@ -5,6 +5,7 @@ import {
   Button,
   Input,
   MaskInput,
+  ModalLoader,
   MultiInput,
   Textarea,
 } from "../../components/common";
@@ -59,6 +60,9 @@ export const AddTutor: React.FC = () => {
   } = useForm<FormValues>();
   const listAllCourse = useSelector(
     (state: RootState) => state.courseSlice.listAllCourse
+  );
+  const isLoading = useSelector(
+    (state: RootState) => state.tutorSlice.isLoading
   );
   const onSubmit = (data: any) => {
     dispatch(doAddTutor(data))
@@ -297,6 +301,7 @@ export const AddTutor: React.FC = () => {
             marginBottom={16}
           />
         </div>
+        <ModalLoader isShow={isLoading} />
       </div>
     </form>
   );

@@ -6,3 +6,7 @@ export * from "./SideBar/SideBar";
 export * from "./Textarea/Textarea";
 export * from "./MultiInput/MultiInput";
 export * from "./MaskInput/MaskInput";
+export * from "./Modal/Modal";
+export * from "./ModalConfirm/ModalConfirm";
+export * from "./Loader/Loader";
+export * from "./ModaLoader/ModalLoader";

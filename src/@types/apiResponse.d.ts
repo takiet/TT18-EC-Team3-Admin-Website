@@ -112,3 +112,17 @@ interface IResVoucher {
   discount?: number;
   type?: boolean;
 }
+
+interface IResPayment {
+  courseID?: string;
+  userID?: string;
+  email?: string;
+  status?: number;
+  total: number;
+  tutor: Array<IResOneTutor>;
+  course: IResGetCourse;
+  user: { name?: string; avatar?: string };
+}
+interface IResListPayment {
+  result: Array<IResPayment>;
+}

@@ -1,0 +1,47 @@
+.home-table {
+  background: white;
+  border-radius: 10px;
+  height: 100%;
+  padding: 2rem;
+
+  .payment-row__status {
+    display: none;
+  }
+  td {
+    cursor: pointer;
+  }
+  th {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+    height: 60px;
+    font-size: 16px;
+    padding: 0 8px;
+  }
+  // td {
+  //   text-align: left;
+  //   vertical-align: middle;
+  //   border: 1px solid #dee2e6;
+  //   height: 60px;
+  //   padding: 0 8px;
+  // }
+  &__edit {
+    width: 60px;
+  }
+  &__no-order {
+    width: 60px;
+    font-size: 24px !important;
+  }
+  &__name {
+    width: 200px;
+  }
+  &__amount {
+    width: 100px;
+  }
+  &__status {
+    width: 100px;
+  }
+  &__action {
+    width: 240px;
+  }
+}

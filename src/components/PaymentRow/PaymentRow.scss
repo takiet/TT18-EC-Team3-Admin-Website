@@ -16,4 +16,16 @@
     display: flex;
     align-items: center;
   }
+  &__accept {
+    font-weight: bold;
+    color: green;
+  }
+  &__pending {
+    font-weight: bold;
+    color: gray;
+  }
+  &__reject {
+    font-weight: bold;
+    color: red;
+  }
 }

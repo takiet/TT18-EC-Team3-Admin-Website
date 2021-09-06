@@ -47,17 +47,6 @@ export const SideBar = () => {
         <RiBookletFill className="side-bar__icon" />
         <p>Courses</p>
       </div>
-      {/* <div
-        className={
-          checkFocus(pathname, "/order")
-            ? " side-bar__item side-bar__clicked"
-            : "side-bar__item"
-        }
-        onClick={() => history.push("/order")}
-      >
-        <RiBillFill className="side-bar__icon" /> <p>Orders</p>
-      </div> */}
-
       <div
         className={
           checkFocus(pathname, "/payment")
@@ -68,6 +57,16 @@ export const SideBar = () => {
       >
         <MdPayment className="side-bar__icon" />
         <p>Payment</p>
+      </div>
+      <div
+        className={
+          checkFocus(pathname, "/order")
+            ? " side-bar__item side-bar__clicked"
+            : "side-bar__item"
+        }
+        onClick={() => history.push("/order")}
+      >
+        <RiBillFill className="side-bar__icon" /> <p>Orders</p>
       </div>
       <div
         className={

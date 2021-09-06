@@ -1,71 +1,56 @@
 .container {
-    width: 100px;
-    min-width: 100%;
-    background-color: #f5f5f5;
-    height: 100%;
-    border: 0;
-    border-radius: 25px;
-    box-shadow: 0px 0px 12px 0px rgb(55 73 72 / 2%);
-    padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    .btn {
-        align-self: flex-end;
-    }
+  width: 100px;
+  min-width: 100%;
+  background-color: #f5f5f5;
+  height: 100%;
+  border: 0;
+  border-radius: 25px;
+  box-shadow: 0px 0px 12px 0px rgb(55 73 72 / 2%);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  .btn {
+    align-self: flex-end;
+  }
 }
 
 .payment-table {
-    background: white;
-    border-radius: 10px;
-    height: 100%;
-    padding: 2rem;
+  background: white;
+  border-radius: 10px;
+  height: 100%;
+  padding: 2rem;
 
-    th {
-        text-align: center;
-        vertical-align: middle;
-        border: 1px solid #dee2e6;
-        height: 60px;
-        font-size: 16px;
-        padding: 0 8px;
-    }
-    // td {
-    //   text-align: left;
-    //   vertical-align: middle;
-    //   border: 1px solid #dee2e6;
-    //   height: 60px;
-    //   padding: 0 8px;
-    // }
-    &__edit {
-        width: 60px;
-    }
-    &__no-order {
-        width: 60px;
-        font-size: 24px !important;
-    }
-    &__name {
-        width: 300px;
-    }
-    &__amount {
-        width: 140px;
-    }
-}
-
-.tutor-row {
-    &:hover {
-        background: rgba(222, 226, 230, 0.3);
-    }
-    td {
-        text-align: center;
-        vertical-align: middle;
-        border: 1px solid #dee2e6;
-        height: 60px;
-        padding: 0 8px;
-    }
-    &__email {
-        text-align: left !important;
-    }
-    &__name {
-        display: flex;
-        align-items: center;
-    }
+  td {
+    cursor: pointer;
+  }
+  th {
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #dee2e6;
+    height: 60px;
+    font-size: 16px;
+    padding: 0 8px;
+  }
+  &__edit {
+    width: 60px;
+  }
+  &__no-order {
+    width: 60px;
+    font-size: 24px !important;
+  }
+  &__name {
+    width: 200px;
+  }
+  &__amount {
+    width: 100px;
+  }
+  &__status {
+    width: 100px;
+  }
+  &__action {
+    width: 240px;
+  }
+  &__switch {
+    display: flex;
+  }
 }

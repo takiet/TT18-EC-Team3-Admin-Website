@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import { unwrapResult } from "@reduxjs/toolkit";
+import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { VoucherRow } from "../../components";
-import { Button } from "../../components/common";
+import { Button, ModalConfirm, ModalLoader } from "../../components/common";
 import { ScrollHorizontal } from "../../components/common/ScrollHorizontal/ScrollHorizontal";
 import { doFakeDeleteVoucher } from "../../redux";
 import {
@@ -19,11 +20,26 @@ export const Voucher: React.FC = () => {
   const listAllVoucher = useSelector(
     (state: RootState) => state.voucherSlice.listAllVoucher
   );
-
+  const isLoading = useSelector(
+    (state: RootState) => state.voucherSlice.isLoading
+  );
+  const [isModalShown, setIsModalShown] = useState(false);
+  const [message, setMessage] = useState("");
+  const [voucherID, setVoucherID] = useState("");
   useEffect(() => {
     dispatch(doGetAllVoucher());
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
+  const deleteVoucher = (voucherID?: string) => {
+    dispatch(doDeleteVoucher({ vid: voucherID }))
+      .then(unwrapResult)
+      .then((res: any) => {
+        if (res.message === "OK") {
+          dispatch(doFakeDeleteVoucher({ _id: voucherID }));
+          setIsModalShown(false);
+        } else setIsModalShown(false);
+      });
+  };
   return (
     <div className="container">
       <Button marginBottom={16} onClick={() => history.push("/add-voucher")}>
@@ -57,8 +73,11 @@ export const Voucher: React.FC = () => {
                       discount={item.discount}
                       type={item.type}
                       onClickDelete={() => {
-                        dispatch(doDeleteVoucher({ vid: item._id }));
-                        dispatch(doFakeDeleteVoucher({ _id: item._id }));
+                        setIsModalShown(true);
+                        setVoucherID(item._id!);
+                        setMessage(
+                          `Are you sure you want to delete the voucher ${item.code}`
+                        );
                       }}
                       onClick={() => {
                         history.push({
@@ -81,6 +100,13 @@ export const Voucher: React.FC = () => {
           </div>
         </ScrollHorizontal>
       </div>
+      <ModalConfirm
+        isShow={isModalShown}
+        onClick={() => deleteVoucher(voucherID)}
+        onClickClose={() => setIsModalShown(false)}
+        message={message}
+      />
+      <ModalLoader isShow={isLoading} />
     </div>
   );
 };

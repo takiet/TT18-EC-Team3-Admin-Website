@@ -1,0 +1,28 @@
+.modal {
+  background-color: rgba($color: #000000, $alpha: 0.3);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  &__container {
+    width: max-content;
+    height: max-content;
+    padding: 12px;
+    border-radius: 25px;
+  }
+  &--no-login {
+    height: 180px !important;
+    & > .modal-suggestions__content {
+      margin: 17px 15px 0px 15px;
+      text-align: center;
+    }
+    & > .modal-suggestions__action {
+      margin-bottom: 17px;
+    }
+  }
+}

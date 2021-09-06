@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { useHistory, useParams } from "react-router-dom";
-import { Button, Input, MultiInput, Textarea } from "../../components/common";
+import {
+  Button,
+  Input,
+  ModalLoader,
+  MultiInput,
+  Textarea,
+} from "../../components/common";
 import { doGetAllListTutor, doGetOneCourse, doUpdateCourse } from "../../redux";
 import { useAppDispatch } from "../../redux/store";
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 import "./CourseDetail.scss";
 import { useSelector } from "react-redux";
 import { RootState } from "../../redux/rootReducer";
@@ -27,12 +31,15 @@ export const CourseDetail: React.FC = () => {
   const dispatch = useAppDispatch();
   const [syllabus, setSyllabus] = useState([]);
   const [subject, setSubject] = useState([]);
-  const listAllTutor = useSelector(
-    (state: RootState) => state.tutorSlice.listAllTutor
-  );
+  // const listAllTutor = useSelector(
+  //   (state: RootState) => state.tutorSlice.listAllTutor
+  // );
   const { uid } = useParams<{ uid: string }>();
   const oneCourse = useSelector(
     (state: RootState) => state.courseSlice.oneCourse
+  );
+  const isLoading = useSelector(
+    (state: RootState) => state.courseSlice.isLoading
   );
 
   const {
@@ -53,7 +60,7 @@ export const CourseDetail: React.FC = () => {
         }
       });
   };
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedOptions] = useState([]);
 
   //get data
   useEffect(() => {
@@ -74,12 +81,12 @@ export const CourseDetail: React.FC = () => {
   }, [oneCourse]);
 
   //handle change tutor array
-  const handleChange = (event, value) => {
-    let tempArray = value.map(function (obj) {
-      return obj._id;
-    });
-    setSelectedOptions(tempArray);
-  };
+  // const handleChange = (event, value) => {
+  //   let tempArray = value.map(function (obj) {
+  //     return obj._id;
+  //   });
+  //   setSelectedOptions(tempArray);
+  // };
 
   //set syllabus
   useEffect(() => {
@@ -147,7 +154,7 @@ export const CourseDetail: React.FC = () => {
           <Textarea label="Overview" {...register("overview")} />
         </div>
         <div className="course-detail__right">
-          <p style={{ fontWeight: "bold", marginBottom: 16, marginTop: 16 }}>
+          {/* <p style={{ fontWeight: "bold", marginBottom: 16, marginTop: 16 }}>
             Tutor
           </p>
           <Autocomplete
@@ -165,7 +172,7 @@ export const CourseDetail: React.FC = () => {
                 fullWidth
               />
             )}
-          />
+          /> */}
           <MultiInput
             label="Syllabus"
             onChange={(values) => {
@@ -184,6 +191,7 @@ export const CourseDetail: React.FC = () => {
           />
         </div>
       </div>
+      <ModalLoader isShow={isLoading} />
     </form>
   );
 };

@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { TutorRow } from "../../components";
-import { Button } from "../../components/common";
+import { Button, ModalLoader } from "../../components/common";
 import { ScrollHorizontal } from "../../components/common/ScrollHorizontal/ScrollHorizontal";
 import { doDeleteTutor, doGetAllListTutor } from "../../redux";
 import { RootState } from "../../redux/rootReducer";
@@ -14,6 +14,9 @@ export const Tutor: React.FC = () => {
   const history = useHistory();
   const listAllTutor = useSelector(
     (state: RootState) => state.tutorSlice.listAllTutor
+  );
+  const isLoading = useSelector(
+    (state: RootState) => state.tutorSlice.isLoading
   );
 
   useEffect(() => {
@@ -67,6 +70,7 @@ export const Tutor: React.FC = () => {
           </div>
         </ScrollHorizontal>
       </div>
+      <ModalLoader isShow={isLoading} />
     </div>
   );
 };
