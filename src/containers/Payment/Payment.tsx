@@ -2,7 +2,7 @@ import { unwrapResult } from "@reduxjs/toolkit";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import { Button, ModalConfirm } from "../../components/common";
+import { Button, ModalConfirm, ModalLoader } from "../../components/common";
 import { ScrollHorizontal } from "../../components/common/ScrollHorizontal/ScrollHorizontal";
 import { PaymentRow } from "../../components/PaymentRow/PaymentRow";
 import { doFakeSetPaymentStatus } from "../../redux";
@@ -25,7 +25,9 @@ export const Payment: React.FC = () => {
   const [paymentID, setPaymentID] = useState("");
   const [amount, setAmount] = useState(0);
   const [message, setMessage] = useState("");
-
+  const isLoading = useSelector(
+    (state: RootState) => state.paymentSlice.isLoading
+  );
   const allPayment = useSelector(
     (state: RootState) => state.paymentSlice.listPayment
   );
@@ -234,6 +236,7 @@ export const Payment: React.FC = () => {
           onClickClose={() => setisModalRefundShown(false)}
           message={message}
         />
+        <ModalLoader isShow={isLoading} />
       </div>
     </div>
   );

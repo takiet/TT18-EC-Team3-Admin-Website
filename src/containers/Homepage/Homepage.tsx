@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { ModalLoader } from "../../components/common";
 import { ScrollHorizontal } from "../../components/common/ScrollHorizontal/ScrollHorizontal";
 import { PaymentRow } from "../../components/PaymentRow/PaymentRow";
 import { doGetAllPayment } from "../../redux/asyncAction/payment";
@@ -9,7 +10,9 @@ import "./Homepage.scss";
 
 export const Homepage: React.FC = () => {
   const dispatch = useAppDispatch();
-
+  const isLoading = useSelector(
+    (state: RootState) => state.paymentSlice.isLoading
+  );
   const allPayment = useSelector(
     (state: RootState) => state.paymentSlice.listPayment
   );
@@ -54,6 +57,7 @@ export const Homepage: React.FC = () => {
           </div>
         </ScrollHorizontal>
       </div>
+      <ModalLoader isShow={isLoading} />
     </div>
   );
 };

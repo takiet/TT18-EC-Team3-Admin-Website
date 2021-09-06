@@ -1,8 +1,12 @@
-import React, { useEffect } from "react";
+import { Checkbox } from "@material-ui/core";
+import { unwrapResult } from "@reduxjs/toolkit";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { Button, Input } from "../../components/common";
+import { Button, Input, Label, ModalLoader } from "../../components/common";
 import { doAddVoucher } from "../../redux/asyncAction/voucher";
+import { RootState } from "../../redux/rootReducer";
 import { useAppDispatch } from "../../redux/store";
 import "./AddVoucher.scss";
 
@@ -15,6 +19,7 @@ type FormValues = {
 };
 export const AddVoucher: React.FC = () => {
   const history = useHistory();
+  const [checked, setChecked] = useState(true);
   const dispatch = useAppDispatch();
   const {
     register,
@@ -23,10 +28,16 @@ export const AddVoucher: React.FC = () => {
     formState: { errors },
   } = useForm<FormValues>();
 
+  const isLoading = useSelector(
+    (state: RootState) => state.voucherSlice.isLoading
+  );
   const onSubmit = (data: any) => {
-    setValue("type", true);
-    console.log(data);
-    dispatch(doAddVoucher(data));
+    setValue("type", checked);
+    dispatch(doAddVoucher(data))
+      .then(unwrapResult)
+      .then((res: any) => {
+        if (res) if (res.message === "Add successfully") history.goBack();
+      });
   };
 
   //init
@@ -69,16 +80,25 @@ export const AddVoucher: React.FC = () => {
             })}
             error={errors.discount && errors.discount.message}
           />
+          <div style={{ display: "flex" }}>
+            {checked ? (
+              <Label title="TYPE ~ AMOUNT" />
+            ) : (
+              <Label title="TYPE ~ PERCENTAGE" />
+            )}
+            <Checkbox
+              defaultChecked={checked}
+              onChange={(event: any) => {
+                setChecked(event.target.checked);
+                setValue("type", event.target.checked);
+              }}
+            />
+          </div>
         </div>
         <div className="add-voucher__right">
           <Input
             label="From"
-            {...register("from", {
-              // required: {
-              //   value: true,
-              //   message: "Please input the start time of the voucher",
-              // },
-            })}
+            {...register("from", {})}
             error={errors.from && errors.from.message}
             type="date"
           />
@@ -100,6 +120,7 @@ export const AddVoucher: React.FC = () => {
           />
         </div>
       </div>
+      <ModalLoader isShow={isLoading} />
     </form>
   );
 };

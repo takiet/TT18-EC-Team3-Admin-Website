@@ -210,3 +210,14 @@ interface IModalConfirm {
   classNameContainer?: string;
   message?: any;
 }
+
+interface ILoader {
+  className?: string;
+  color?: string;
+  marginTop?: number;
+  height?: number;
+  isSmall?: boolean;
+}
+interface ILoaderModal {
+  isShow?: boolean;
+}

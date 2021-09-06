@@ -5,13 +5,12 @@ import {
   Button,
   Input,
   MaskInput,
+  ModalLoader,
   MultiInput,
   Textarea,
 } from "../../components/common";
 import { doGetAllListCourse, doGetOneTutor, doUpdateTutor } from "../../redux";
 import { useAppDispatch } from "../../redux/store";
-import TextField from "@material-ui/core/TextField";
-import Autocomplete from "@material-ui/lab/Autocomplete";
 import Select from "@material-ui/core/Select";
 import "./TutorDetail.scss";
 import { useSelector } from "react-redux";
@@ -57,8 +56,11 @@ export const TutorDetail: React.FC = () => {
     control,
     reset,
   } = useForm<FormValues>();
-  const listAllCourse = useSelector(
-    (state: RootState) => state.courseSlice.listAllCourse
+  // const listAllCourse = useSelector(
+  //   (state: RootState) => state.courseSlice.listAllCourse
+  // );
+  const isLoading = useSelector(
+    (state: RootState) => state.tutorSlice.isLoading
   );
   const oneTutor = useSelector((state: RootState) => state.tutorSlice.tutor);
   const onSubmit = (data: any) => {
@@ -70,16 +72,15 @@ export const TutorDetail: React.FC = () => {
         }
       });
   };
-  const [selectedOptions, setSelectedOptions] = useState([]);
+  const [selectedOptions] = useState([]);
 
   //handle change tutor array
-  const handleChange = (event, value) => {
-    let tempArray = value.map(function (obj) {
-      return obj._id;
-    });
-    setSelectedOptions(tempArray);
-  };
-
+  // const handleChange = (event, value) => {
+  //   let tempArray = value.map(function (obj) {
+  //     return obj._id;
+  //   });
+  //   setSelectedOptions(tempArray);
+  // };
   //handle change gender
   const handleSelection = (event) => {
     const title = event.target.title;
@@ -284,7 +285,7 @@ export const TutorDetail: React.FC = () => {
           />
         </div>
         <div className="course-detail__right">
-          <p style={{ fontWeight: "bold", marginBottom: 16, marginTop: 16 }}>
+          {/* <p style={{ fontWeight: "bold", marginBottom: 16, marginTop: 16 }}>
             Course
           </p>
           <Autocomplete
@@ -301,7 +302,7 @@ export const TutorDetail: React.FC = () => {
                 fullWidth
               />
             )}
-          />
+          /> */}
           <MultiInput
             label="Degree"
             onChange={(values) => {
@@ -328,6 +329,7 @@ export const TutorDetail: React.FC = () => {
           />
         </div>
       </div>
+      <ModalLoader isShow={isLoading} />
     </form>
   );
 };
